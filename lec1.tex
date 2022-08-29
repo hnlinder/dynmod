@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec1.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+
+
+In ML lab we work with data from titanic.
+
+E.coli is the base bacterium in biology, about 1 $\mu$m in diameter. Cell division every 30 mins. Ca 5 million base pairs in its DNA. Error rate about 1 / $10 ^{-9}$
+
+ABout $10 ^{9}$ base pairs in humans, $10 ^{10}$ in trees. 
+
+About the same number of genes in most organisms, but different genome length. 
+
+
+E.coli will sense sugar close by, it will build a flagellum that spins at 100 Hz and propells forward to eat the sugar with a pump (mouth). Thay are all proteins, about 1 nm. Proteins made from about 300 aminoacids (AA). About 4500 protein types, about 4500 genes. 
+about $3\cdot 10^{6}$ proteins per cell. 
+$10 - 10^{5}$ protein copy numbers. 
+
+Cells change protein composition based on the environment. 
+
+They have protein receptors on the membrane, a signal the goes into the cell. EM-fields are useless on this scale because the ions tend to screen the radiation.
+
+How do cells make proteins? 
+
+Proteins are encoded in genes. 
+
+(Whats the specific sequence of 300 AAs that define the 3D-shape of the protein.)
+
+
+RNA - polymerase (RNAp) will bind to the DNA, and transcribe to messenger (mRNA). 
+
+Ribosomes then translate the mRNA and make a protein. 
+
+Cells regulate transcription to change the protein composition.
+
+Cells use special proteins th regulate genes. These are called transcriptions FActors (TFs), about 300 of them. 
+
+External signals freom the environment: S1, S2, S3, get transcripted to 300 TFs: TF1, TF2, ..., TF300 
+these proteins then sit on the genes and affect the expression of these genes. It sits on the DNA and makes it more or less likely for the RNAp to attach. (Activator or repressor.)
+
+TFs can attach to eachother and make complicated expressions, (AND/OR/XOR conditionals)
+
+Shorthand: TFy increases Y: TFy --> Y 
+Shorthand: TFy decreases Y: TFy --| Y 
+
+Switch TF: $\mu s$
+Find binding site: 1-10 s 
+transcribe: about minute
+hours to get full expression. 
+
+Gene regulatory network: genes can affect eachother
+
+4500 nodes, $10^{4}$ links, sparse network. 
+
+We will make an ER-network.		
+
+The epigenetics is an unsolved problem, even though the human genome is done. 
+
+
+
+\end{document}
