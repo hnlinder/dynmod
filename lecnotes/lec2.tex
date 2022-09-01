@@ -1,0 +1,165 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec2.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Repetition of lec1}
+In networks we have an adjacency matrix describing the conections between genes. 
+
+State od e.coli iis the concentration of all proteins expressed by the 4500 genes. 
+
+Polypeptide chain  -  aka protein
+
+Transcription Factors regulate the gene expression (Promotor or repressor)
+TFs have an active and inactive form, the signals from environmant change the TF from inactive to active, starting regulation. 
+
+\section{Transcription}
+
+\subsection{
+3 state Hawley-McClure model}
+
+The rate of transcription varies by  several orders of magnitude. Varies from secinds to minutes. 
+
+
+PNAS (1980)
+
+-Initiation frequencies vary by a lot. 
+(we know this from both in vivo and in vitro experiments (in silico means in simulation))
+
+Some of these variations depend on RNAp-DNA interactions. 
+
+
+
+- Old model: DNA + RNAp in a "closed complex"
+ New model: DNA + RNAp in an "open complex"
+
+ - Two possible rate limiting steps: 
+	--(1)Binding 
+	--(2) opening of the "DNA bubble" (open complex)
+	
+He wanted to find out which is which
+
+McClure's big breakthrough was managing to measure the binding and opening of the DNA separately, that way they could figure out which one was limiting. 
+
+He designed an in vitro experiment where he could study (1) and (2) independently. 
+
+He didn't supply enough nucleotides (boulding blocks of RNA \& DNA), didnt have all 4 base pairs. Then it produced lots of small pieces of RNa, then he measured those. 
+
+He had a solution with DNA + promoter + RNAp + nucleotides (not all) + ATP. 
+
+This led to lots of abotions and re-initiations
+
+-> many small mRNAs
+
+see fig.2.8 in book
+%\begin{figure}[H]
+	%\includegraphics[width=\linewidth]{}
+	%\label{fig:}
+%\end{figure}
+
+
+
+\subsection{3 state Hawley-McClure model of transription}
+
+see fig. 2.7, p. 26
+
+(1) binding
+
+binding constant
+\begin{equation}
+	k = \frac{k_{u}}{k_{b}}
+\end{equation}
+[concentration, M]
+
+(2) closed complex
+
+when it's bound, it's in this closed complex
+
+
+(3) open complex
+
+
+%\begin{figure}[H]
+	%\includegraphics[width=\linewidth]{}
+	%\label{fig:}
+%\end{figure}
+
+this is a non equilibrium process from (2) to (3), ignore the step back 
+
+then transcription starts, "elongation". $k_{e} \approx $ 30 bp/s
+
+\textit{Goal:} relate $\tau$ to all rates $k_{o}, k_{u}, k_{b}, k_{e}. $
+
+$\theta_{c}$ = prob. to be in closed complex
+$\theta_{o}$ = prob. to be in open complex
+
+\begin{equation}
+	\dv{\theta_{o}}{t} = \theta_{c}k_{o} - k_{e}\theta_{o}
+\end{equation}
+
+
+
+\begin{equation}
+	\begin{split}
+		\dv{\theta_{c}}{t} =(\text{prob that the prom. free}) \cdot k_{b}[RNAp] - k_{u}\theta_{c} - k_{o}\theta_{o} %\theta_{c}k_{o} - k_{e}\theta_{o}
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\dv {[RNAp]}{t} = \theta_{o}k_{e} \approx \bar{\theta_{o}}k_{e}
+\end{equation}
+
+analyze these eqs in steady state, 
+\begin{equation}
+	\dv {\theta_{c}}{t} = \dv {\theta_{o}}{t} = 0
+\end{equation}
+
+\begin{equation}
+	[RNAp](t) \approx \bar{\theta_{o}}k_{e} \equiv \frac{t}{\tau}
+\end{equation}
+
+
+solve for $\bar \theta_{o}$ and ${\bar \theta_{o}$
+
+\begin{equation}
+	\tau = \frac{1}{\bar \theta_{o} k_{e}} = \frac{1}{k_{e}} + \frac{1}{k_{o}} + \frac{1}{k_{b}{RNAp}}(1 - \frac{k_{u}}{k_{o}})
+\end{equation}
+
+bar denotes steady state
+
+
+
+from Mcclures exp
+$k_{o} \approx .001 - .1 /s$, $\frac{k_{u}}{k_{b}} \approx 1nM - 1\mu M$
+
+\subsection{Gene regulation - lac repressor (operon)}
+
+Humans have an operatror site for each gene that controls expression. 
+
+Bacteria have \textit{Operons}, that are operator sites that can regulate several genes. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
