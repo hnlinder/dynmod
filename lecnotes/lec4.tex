@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec4.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+
+\section{Lab info}
+Translation is the topic of the lab 
+
+\section{Recap}
+Binding probability is sigmoid curve as a function of R (concentration)
+
+Prob 1/2 is at R = k, with k = $\frac{R}{R + k}$ = concentration$\approx 1e-4 \quad 1e-2 \mu M$
+
+
+To steepen the curve, 
+
+\begin{equation}
+	\frac{R ^ 4}{R ^ 4 + k_2}
+\end{equation}
+
+
+
+\section{Translation}
+tRNA with an amino acid and a kodon matches a kodon on the mRNA with th ehelp of the ribosome which then chains the amino acids together into a protein. 
+
+
+Protein is sometiemes called a polypeptide since it's a chain of AAs with peptide bonds. 
+
+\begin{equation}
+	DNA \longrightarrow [transcription] \longrightarrow mRNA \longrightarrow [translation] \longrightarrow proteins
+\end{equation}
+
+1 codon is one specific amino acid 
+ex: 
+
+
+codon combinations are $4^3 = 64$, there are $\approx$ 20 AAs, so we have a degenerate code. 
+
+so if the tRNA codon is uac , then the mRNA is AUG (complementary codon, anti-codon)
+
+There's a translation speed that's on average 12.5 codons/s
+
+1 protein is 360 AAs is 360 codons. Translation time 360/12.5 $\approx$ 20 s
+
+as an exercise : calculate on average how many ribosomes there are per RNA
+(exc 1000 mRNA, 40000 ribosomes, so 40 ribosomes per RNA. Hence traffic jams.)
+
+\section{Traffic jam model}
+\subsection{Lab 1: 1D traffic model for translation}
+1D lattice representing the mRNA. with lattice sites (boxes) representing codons. 
+ribisomes moving = particles jumping forward with rate $q$.
+if there's another particles in the box ahead, the one behind cannot jump. 
+to enter the system with entrance rate $\alpha$ and exit the system with exit rate $\beta$.
+
+goal i to calculate the particle flux through the system, from i = 1 to i = L (and exit). 
+
+$\theta$ = Prob that i is occupied by a ribosome. 
+
+%i $\equiv$2,..,L-1
+\begin{equation}
+	\begin{split}
+	\dv{\theta_i}{t} = q\theta_{i-1}(i-\theta_i) -q\theta_i(i-\theta_{i+1}), i \equiv 2,..,L-1\\
+	\dv{\theta_1}{t} = \alpha(1-\theta_1) -q\theta_1(1-\theta_{2})\\
+	\dv{\theta_L}{t} = \theta_{L-1}(1-\theta_L) - \beta \theta_L\\
+	\end{split}
+\end{equation}
+
+Flux $J= \beta \theta_L$
+
+
+
+Two solutions  : 
+1)
+\begin{equation}
+	\theta_1 = \theta_i = 1,\quad\theta_L=0,\quad J = o
+\end{equation}
+2)
+\begin{equation}
+	\theta_1 = \theta_i = \frac{\alpha(1-\alpha)}{\beta},\quad J = \alpha(1-\alpha)
+\end{equation}
+
+noit correct.
+
+an implicit assumtion in the derivation of $J$, is that $\beta >> \alpha$ is large so that it is diluted. 
+
+
+
+
+
+\section{Lab info}
+Translation is the topic of the lab 
+
+Follow the report guidelines, short but correct
+make subplots and combine plots. 
+
+
+lab1 
+
+genereal problem: when you have multiple ribosomes, you get traffic jams, 
+
+for the later parts: different codons have different translation rates. 
+
+
+for the "stochastic" part of the lab, just calculate the probabilities and check if the event happens. 
+
+in every lattice point, its state can be $\tau_i =  \{1,2\}$ (free or occupied). What complicates things is that $\tau_i$ and $\tau_{i\pm 1}$ are correlated. 
+
+\begin{equation}
+	<\tau_i(t)\tau_{i-1}>\approx <\tau_i(t)><\tau_{i-1}(t)> \equiv \theta_i(t)\theta_{i-1}(t)
+\end{equation}
+which is the mean-field approximation, valid in the low-density regime. 
+
+the high-beta low density thing is a good sanity check in the lab
+
+
+\section{transcription regulation}
+\subsection{Protein degrsdation }
+\begin{equation}
+	\dv{c}{t}  = prod(R) - ck_{deg}
+\end{equation}
+
+the degradation term is different for activators and suppressors. 
+
+activator: 
+\begin{equation}
+	prod(R)\propto \frac{R}{R+ K}
+\end{equation}
+Degradation has two components. 
+
+1) dilution by cell division. CD doubles the volume, but keeps the cumber of proteins the same. Dilution time scale is roughly cell life time. In bacteria, roughly 1/2 hours. RNA lifetime, roughly minutes. 
+
+2) active degradation. An enzyme binds to the protein and chops it up back into AAs.
+\begin{equation}
+	k_{deg} = \frac{1}{\tau_{cell}} + k_{deg,a}
+\end{equation}
+
+If proteins misfold and form aggregrates (which are problematic in cells), there are special pacman protein sthat cut them apart, that's the active degradation part. 
+
+If you turn off protein production, how fast will $c(t) \longrightarrow 0$, $c$ is protein concentration. 
+\begin{equation}
+	\begin{split}
+	\dv {c}{t} = P_0 \frac{R}{R+ k} - k_{deg}c\\
+	p_0 = k_{deg} \bar c
+	\end{split}
+\end{equation}
+
+proteins degrade as 
+\begin{equation}
+	e ^ {-k_{deg}t}
+\end{equation}
+Response time (to go to zero) 
+\begin{equation}
+	t_{resp}\approx \frac{1}{k_{deg}} \approx \tau_{cell}
+\end{equation}
+this is way too slow. 
+cells must regulate genes in other ways to acchieve fast response timesl 
+
+this is called seimple regulation 
+
+ex: self-regulation (auto-regulation)
+(negative feedback loop)
+
+
+
+
+\end{document}
