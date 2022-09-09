@@ -1,0 +1,253 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec6.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+
+
+\section{Repetition}
+smallRNA regulation 
+
+sRNA binds to mRNA, stopping translation 
+
+much faster than transcription regulation. 
+
+\begin{equation}
+	\dv {c}{t} = prod(R) - k_{deg}c
+\end{equation}
+
+
+The responsiveness of this system is determined by the removal rate $\gamma$
+
+by responsiveness i mean the slope of the concentration of sRNA. 
+
+\begin{equation}
+	\begin{split}
+	\dv {m}{t} = \alpha_m = \gamma m s - m/\tau_m\\
+	\dv {s}{t} = \alpha_s = \gamma m s - s/\tau_s\\
+	\end{split}
+\end{equation}
+might be important fo exam to be able to formulate these kinds of equations. 
+
+
+
+
+\begin{equation}
+	\bar m \approx \frac{1}{(\alpha -1)\gamma}
+\end{equation}
+
+
+\section{Statistical mechanichs of binding}
+%fig 1 
+
+Probability of binding: 
+\begin{equation}
+	P_b = \frac{R}{R+k}
+\end{equation}
+R is concentration, k is energy??
+
+A balance between energy and entropy. 
+
+We consider the opposite limit, one particle (protein), many sites. 
+
+%fig 2 
+
+$P_k$ is prob to be in site k 
+$P_i = \frac{1}{\Omega}$ 
+
+\begin{equation}
+	\sum _{i = 1}^{\Omega}P_k = \frac{1}{\Omega}\sum _{i = 1}^{\Omega} = 1 
+\end{equation}
+makes sense! 
+%fig 3
+\begin{equation}
+	P_k = \frac{1}{z}e ^ {-\beta \epsilon_b},\quad P_i = \frac{1}{z}e ^ {-\beta \epsilon_0}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+	1 = \sum _{i = 1}^\Omega  
+	\end{split}
+\end{equation}
+
+
+partition function is 
+\begin{equation}
+	Z = e ^{-\beta \epsilon_b} + (\Omega - 1)e^{-z\beta\epsilon_0}
+\end{equation}
+
+
+binding prob (density): 
+\begin{equation}
+	\begin{split}
+	P_b = \frac{e ^ {-\beta\epsilon_b} }{e ^ {-\beta\epsilon_b} + \Omega e ^ {-\beta\epsilon_0} } \\
+	= \frac{(1/\Omega )e ^ {-\beta(\epsilon_b - \epsilon_0} }{(1/\Omega )e ^ {-\beta(\epsilon_b - \epsilon_0}+1}\\
+	= \frac{1}{1 + e ^ {\beta\Delta G} }\\
+	\end{split}
+\end{equation}
+since 
+\begin{equation}
+	\begin{split}
+	e ^ {-\beta(\epsilon_b - \epsilon_0) + \ln (1/\Omega )} =  e ^ {-\beta(\epsilon_b - \epsilon_0) + \ln (1/\Omega )}
+	\end{split}
+\end{equation}
+
+
+what about several binding sites? L sites
+ 
+
+\begin{equation}
+	\begin{split}
+		P_b = \frac{(L/\Omega)e ^ {-\beta\Delta\epsilon} }{(L/\Omega)e ^ {-\beta\Delta\epsilon} + 1}\\
+			\implies \Delta G = \Delta \epsilon + k_bT\ln(L/\Omega)
+	\end{split}
+\end{equation}
+
+
+\section{Non-specific binding to DNA}
+
+The transcription factors (TFs) have a binding affinity to many places on DNA, not just the right ones.
+
+
+\begin{equation}
+	P_b = 1/2
+\end{equation}
+at what $\Delta \epsilon$?
+
+Assume $R + 1,\Omega \gg L, L\gg 1$
+
+
+
+\begin{equation}
+	P_b = \frac{1}{1 + e^{\beta \Delta G}}
+\end{equation}
+
+$e ^ {\beta\Delta G}  = 1$  
+
+In ecoli 
+
+V = 1 $\mu m ^3$, $\alpha  = 1nm$ (protein radius)
+
+$l_{DNA} =$ 5e6 BPs $\implies L = 5e6$ BPs.
+
+
+
+\begin{equation}
+	\Delta \epsilon  = -k_bT \ln(\frac{5\cdot 10^6}{1-^9}) = -3\ln5 k_bT \approx -4.8 k_bT
+\end{equation}
+suspicious minus sign, check it. 
+
+just convention apparently
+
+this is a reasonable binding energy though. 
+
+in humans: 
+
+V = 10 $\mu m ^3$, $l_{DNA} = 7e10 $ bp , 
+
+\begin{equation}
+	\Delta \epsilon = k_bT \ln(\frac{L}{\Omega}) = k_bT \ln \frac{7e9}{10e10} = -1.9k_bT
+\end{equation}
+
+much lower binding energy 
+
+therefore you will have much more binding. 
+
+the length of the DNA matters a lot for the amount of binding. 
+
+
+
+
+Check out  statistical mechanics of binding at bio-physics.at. 
+
+
+
+
+Many regulators, one binding site:
+showing \begin{equation}
+	\frac{R}{R+k}
+\end{equation}
+\begin{equation}
+	p_b = \frac{(R/\Omega) e ^ {\beta\Delta G}}{(R/\Omega e ^ {\beta\Delta G} + 1)}
+\end{equation}
+
+\begin{equation}
+	\frac{R}{\Omega} = \frac{R}{V}\frac{V}{R} = \frac{[R]}{\Omega /V}
+\end{equation}
+
+
+\begin{equation}
+	P_b = \frac{[R]}{[R] + \frac{V}{\Omega}e ^ {\beta\Delta G} }
+\end{equation}
+and defining 
+\begin{equation}
+	\frac{V}{\Omega}e ^ {\beta\Delta G}  = k
+\end{equation}
+
+k  is a property if the system, "standard state": $C_0 = .6M \approx 1M$. 
+
+you always have to make sure that you're in the right standard state. 
+
+\begin{equation}
+	k \approx 10^{-8\pm 2}M
+\end{equation}
+in cell biology. 
+
+
+
+
+\subsection{Corporate binding}
+means that we have a binding site close to another BS. Then they have some binding energy $\Delta G$ between them. Standard energy is the same, but then you add corporate binding energy, which counteract teh entropy term, making it more probable to bind. 
+
+Cooperativity, read in the book. This made a lot of genes occur in pairs. 
+
+
+\subsection{DNA-looping}
+there's another contribution to the binding energy from the DNA looping. 
+
+\begin{equation}
+	\Delta G_{loop} = T\Delta S_{loop}= T\ln (\text{prob to for a loop of size }l)
+\end{equation}
+
+
+simplest possible polymer is random orientation. looping prob is what are the odds of ending up where you started?
+
+for rand polymer: 
+\begin{equation}
+	P(l) \approx \left(\frac{l}{l_0}\right)^{-3/2}
+\end{equation}
+
+%measuring the distance from 
+measuring this in DNA will get you 
+there are experiments measuring this in DNA
+
+how many contacts did you get for 100,1000,10000 apart? 
+
+in human: 
+\begin{equation}
+	P(l) \approx \left(\frac{l}{l_0}\right)^{-1.08}
+\end{equation}
+
+In the lac-repressor, we looked at 2 operator sites, there's lots of looping involved. most comlicated is the octamere, exptremely stable. 
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
