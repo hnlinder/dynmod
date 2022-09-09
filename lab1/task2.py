@@ -1,51 +1,61 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from numpy.random import rand
+from time import sleep
 # print("hej")
 
-L  = 10
-lattice  = np.zeros(L)
+L  = 30
 
 alpha = .1
-beta = .1
+beta = .01
 q = .1
-Np0 = 0
-tmax = 10
+
+
+
+tmax = 600*
+dt = 10
+
 kp = 1/60
 kd = 1/1800
+Np0 = 0
+lattice  = np.zeros(L)
 
 meanlength = int(tmax/2)
 mean = np.empty(10)
-tarr = np.linspace(0,tmax-1,tmax)
+tarr = np.linspace(0, tmax-1, int((tmax-1)/dt))
+# print(tarr)
 
 
+def move_rib(lattice, i):
+    lattice[i] -=1
+    lattice[i+1] +=1
+    return lattice
 
-for t in range(tmax):
-    for i,nr_ribosomes in enumerate(lattice):
-        rand1 = np.random.rand()
-        rand2 = np.random.rand()
-        rand3 = np.random.rand()
-        if i == 0:
-            lattice[i] += (rand1 < alpha)
-        elif i == L-1:
-            lattice[i] += (rand1 < beta)
-        else:
-            print(i)
-            lattice[i+1] += (rand1 < q)
-
-    while 2 not in lattice:
-        for i,nr_ribosomes in enumerate(lattice):
-            if i == 0:
-                if nr_ribosomes >1:
-                    lattice[i] -= 1
-            else:
-                if nr_ribosomes > 1:
-                    lattice[i-1] += 1
-        print(lattice)
-
-    print(lattice)
+def valid_move(lattice, i):
+    return (lattice[i+1] == 0) and (lattice[i] > 0)
+# rib_index = np.where(lattice>0)[0]
+# print(rib_index)
+proteins_produced = 0
+for t in range(len(tarr)):
+    rib_index = np.where(lattice>0)[0]
+    # print(rib_index)
+    np.random.shuffle(rib_index)
+    for i in rib_index:
+        if i != L-1:
+            if ((rand() < dt * q) and valid_move(lattice,i)):
+                lattice[i+1] += 1
+                lattice[i] -= 1
 
 
-# print(mean)
-# print(np.mean(mean))
-# plt.plot(tarr, Np)
-# plt.show()
+            # lattice[i+1] += ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
+            # lattice[i] -= ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
+
+    lattice[0] += ((lattice[0]==0) and (rand() < dt * alpha))
+    if ((lattice[L-1]>0) and (rand() < dt * beta)):
+        lattice[L-1] -= 1
+        proteins_produced +=1
+    print(f"{lattice}\n")
+    # sleep(.1)
+print(proteins_produced)
+
+
