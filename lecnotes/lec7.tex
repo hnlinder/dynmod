@@ -1,0 +1,245 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec7.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+
+\section{Repetition}
+Probability of binding in a certain volume is 
+\begin{equation}
+	P_b = \frac{1}{1 + e ^ {\beta\Delta G}} = \frac{1}{1 + \frac{1}{V}e ^ {-\beta\epsilon}}
+\end{equation}
+depending on how you define your energy. 
+
+
+$\Delta G = $ free energy = energy + entropy
+
+Huge entropy cost of folding DNA.
+
+Non-specific binding means that $P_b = 1/2$ 
+
+
+Corporate binding : counteract the entropy term in the binding prob by having two binding sites next to eachother. 
+\begin{equation}
+	\Delta G  = \epsilon + \epsilon ' - k_b T \ln(\Omega) + \epsilon _{R - R'}
+\end{equation}
+where $k_b T \ln(\Omega)$ is the entropy. $\Omega$ is the \# of boxes = V/a$^3$.
+
+
+
+\section{Stochastic dynamics in living systems}
+\begin{itemize}
+	\item Diffusion
+	\item Target search
+\end{itemize}
+
+Examples: 
+
+- Protein diffusion: 
+	Molecule moving around in a cell. 
+
+	If you want to move in a straight line, you will have to spend energy. 
+
+	Random thermanl motion cossts nothing. 
+
+- Target search :
+	
+
+- Transcription initiation: 
+	
+
+
+\subsection{Diffusion}
+Incredibly low Reynolds numbers in cells. 
+
+Check out "Life at low Reaynolds numbers" again. 
+
+
+
+3D position of the particle: 
+\begin{equation}
+	\vec r = (x,y,z)
+\end{equation}
+%fig 6 
+
+Equation of motion: patricle in a viscuous fluid. 
+
+N2: 
+\begin{equation}
+	m \dv[2]{x}{t} = \text{drag force + noise (+ external force)}
+\end{equation}
+Drag force $\propto$ velocity at low vel.s.
+\begin{equation}
+	m \dv[2]{x}{t} = \xi \dv{x}{t} = \eta (t)
+\end{equation}
+where $\xi$ is the hydrodynamic friction: $\xi =$(6$\pi$viscosity/radius)
+
+in the high-friction limit: \begin{equation}
+	\dv[2]{x}{t} = 0
+\end{equation}
+
+\begin{equation}
+	\dv {x}{t} = \frac{1}{\xi}\eta(t)
+\end{equation}
+which is the Lengevin eq. (Brownian motion)
+
+This is an unbiased random walk. 
+(also used in stock market analysis (geometric brownian motion))
+
+
+What is $\eta(t)$? White noise. Random noise with 
+
+
+1) mean = 0.
+%fig 7
+
+many types of averages. Ensemble average: "n statistical mechanics, the ensemble average is defined as the mean of a quantity that is a function of the microstate of a system, according to the distribution of the system on its micro-states in this ensemble."
+\begin{equation}
+	<\eta(t)> = 0
+\end{equation}
+
+2) variance over time is constant. 
+
+%fig 8
+
+3) uncorrelated
+
+if you correlate two different regions, the correlation should be 0. Corr. between $T_1$ and $T_1$ = 1, but  between $T_1$ and $T_n$ = 0 for $n \neq 1$ 
+
+White noise is the least biased noise you can add. 
+\begin{equation}
+	<\eta(t)\eta(t')>\leftarrow(t-t')
+\end{equation}
+
+calculate displacement: 
+
+Integrate Langevin eq. ($\int_0^t\dd u$)
+\begin{equation}
+	x(t) - x(0) = \Delta x = \frac{1}{\xi}\int _0^t\eta (u)\dd u
+\end{equation}
+\begin{equation}
+	<\Delta x> = <\frac{1}{\xi}\int_0^t<\eta(u)>\dd u = 0
+\end{equation}
+
+-Calc mean-squared displacement (MSD):
+
+\begin{equation}
+	\begin{split}
+	<\Delta x (t)^2> = <\Delta x(t)\Delta x(t)> \\
+	&= <\frac{1}{\xi}\int_0^t\eta(u)\dd u \cdot \int_0^t \eta (v)\dd v\\
+	&= \frac{1}{\xi^2} \int_0^t \int_0^t \text{const} \cdot\delta (u-v)\dd u \dd v \\
+	&= \frac{C}{\xi^2} \int_0^t \dd u \\
+	&= \frac{Ct}{\xi^2}
+	\end{split}
+\end{equation}
+which is $\equiv 2Dt$ where $D$ is the diffusion constant. 
+
+special for diffusion: square of distance traveled is prop- to time, dist $\propto \sqrt t$, much slower than ballistic motion. 
+
+
+All directions are independent: 
+\begin{equation}
+	<\Delta x^2>
+	=<\Delta y^2>
+	=<\Delta z^2>
+\end{equation}
+
+gives that 
+\begin{equation}
+	\begin{split}
+	<\Delta R^2> = <\Delta \vec R \cdot \Delta \vec R > = <\Delta x^2 = \Delta y ^2 + \Delta z ^ 2> = 3 <\Delta x ^ 2> = 6 \Delta t
+	\end{split}
+\end{equation}
+
+How fast wiill RNAp diffuse across E.Coli? 
+
+Diameter 1 $\mu m $
+
+$D = 5(\mu  m ^2)/s$
+
+$<\Delta R^2 = 6Dt>$
+ \begin{equation}
+	t = \frac{<\Delta R^2>}{6D} = 0.03
+\end{equation}
+	seconds. 
+
+	Pretty fast. 
+
+What about human cells? 
+
+Diameter 10 $\mu m $
+
+$D = 5(\mu  m ^2)/s$
+
+$<\Delta R^2 = 6Dt>$
+
+\begin{equation}
+	t = 3
+\end{equation}
+seconds. 
+
+
+How long to diffuse along E.Coli's DNA? 
+
+1D diffusion. 
+
+$l_{DNA} = 1550 \mu m$  (calc from \# BPs and size. )
+
+$D= \frac{5 (\mu m )^2}{s}$
+
+\begin{equation}
+	t = \frac{l_{DNA}^2}{2D} = \frac{2.4e6(\mu m )^2}{2\cdot 5 \frac{(\mu m )^2}{s}} \approx 67 hrs \approx 3 \text{days}
+\end{equation}
+
+
+\subsection{What is the distribution of x?}
+P(x,t)
+
+x is the sum of random numbers, so it will conform to a gaussion for large numbers. 
+
+Will tend to a gaussian curve with mean $M = 0$, $\sigma^2 = 2Dt$ 
+\begin{equation}
+	\implies P(x,t) = \frac{e ^ {-(x-x_0)^2/4Dt}}{\sqrt{4\pi Dt}}
+\end{equation}
+$P(x,t)$ satisfieas 
+
+\begin{equation}
+	\pdv {D}{t} = D\pdv[2] {P}{x}
+\end{equation}
+
+independent directions, so 
+
+\begin{equation}
+	\begin{split}
+	P(\vec r , t ) = p(x,y,z,t) = p(x,t)p(y,t)p(z,t)\\
+	= \frac{e^{-x^2/4Dt}}{\sqrt{4\pi Dt}}\cdot
+	 \frac{e^{-y^2/4Dt}}{\sqrt{4\pi Dt}}\cdot
+	 \frac{e^{-z^2/4Dt}}{\sqrt{4\pi Dt}}\\
+	 = \frac{e^{-(x^2 + y^2 + z^2)}}{(4\pi Dt)^{3/2}}\\
+	\end{split}
+\end{equation}
+
+
+\subsection{Target search}
+Find the search time $t$ from volume, D, a. 
+
+
+\begin{equation}
+	t \approx \frac{V}{aD}
+\end{equation}
+\begin{equation}
+	t = \frac{V}{4\pi aD}
+\end{equation}
+
+
+
+\end{document}
