@@ -6,12 +6,15 @@ from time import sleep
 
 L  = 30
 
-alpha = .1
-beta = .01
-q = .1
+alpha = .9
+beta = .2
+q = .3
 
-tmax = 600
-dt = 10
+
+
+Nr = 14
+tmax = 3600 * 100
+dt = 4
 
 kp = 1/60
 kd = 1/1800
@@ -33,8 +36,12 @@ def valid_move(lattice, i):
     return (lattice[i+1] == 0) and (lattice[i] > 0)
 # rib_index = np.where(lattice>0)[0]
 # print(rib_index)
-proteins_produced = 0
+# proteins_produced = 0
+ind = 0
+proteins_produced = np.zeros(len(tarr))
 for t in range(len(tarr)):
+
+    proteins_produced[ind] = proteins_produced[ind - 1]
     rib_index = np.where(lattice>0)[0]
     # print(rib_index)
     np.random.shuffle(rib_index)
@@ -43,17 +50,20 @@ for t in range(len(tarr)):
             if ((rand() < dt * q) and valid_move(lattice,i)):
                 lattice[i+1] += 1
                 lattice[i] -= 1
-
-
-            # lattice[i+1] += ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
-            # lattice[i] -= ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
-
-    lattice[0] += ((lattice[0]==0) and (rand() < dt * alpha))
+    if ((lattice[0]==0) and (rand() < dt * alpha * Nr)):
+        lattice[0] += 1
+        Nr -=1
     if ((lattice[L-1]>0) and (rand() < dt * beta)):
         lattice[L-1] -= 1
-        proteins_produced +=1
-    print(f"{lattice}\n")
+        proteins_produced[ind] += 1
+        Nr +=1
+    if (rand() < dt * kd * proteins_produced[ind]):
+        proteins_produced[ind] -= 1
+    # print(f"{lattice}\n")
+    # print(proteins_produced)
+    ind +=1
     # sleep(.1)
 print(proteins_produced)
 
-
+plt.plot(tarr, proteins_produced)
+plt.show()
