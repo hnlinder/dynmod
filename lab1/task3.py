@@ -7,14 +7,14 @@ from time import sleep
 L  = 30
 
 alpha = .9
-beta = .2
+beta = 2
 q = .3
 
 
 
 Nr = 14
 tmax = 3600 * 100
-dt = 4
+dt = 1/2
 
 kp = 1/60
 kd = 1/1800
