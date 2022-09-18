@@ -6,9 +6,9 @@ from time import sleep
 
 L  = 30
 
-alpha = .1
-beta = .01
-q = .1
+alpha = 1
+beta = .5
+q = 1
 
 tmax = 600
 dt = 10
@@ -34,6 +34,7 @@ def valid_move(lattice, i):
 # rib_index = np.where(lattice>0)[0]
 # print(rib_index)
 proteins_produced = 0
+occupied = 0
 for t in range(len(tarr)):
     rib_index = np.where(lattice>0)[0]
     # print(rib_index)
@@ -49,11 +50,14 @@ for t in range(len(tarr)):
             # lattice[i] -= ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
 
     lattice[0] += ((lattice[0]==0) and (rand() < dt * alpha))
-    if ((lattice[L-1]>0) and (rand() < dt * beta)):
-        lattice[L-1] -= 1
-        proteins_produced +=1
+    if ((lattice[L-1]>0)):
+        occupied +=1
+        if (rand() < dt * beta):
+            lattice[L-1] -= 1
+            proteins_produced +=1
     print(f"{lattice}\n")
     # sleep(.1)
 print(proteins_produced)
 
+print(f"Occupational probability : {occupied/len(tarr)}")
 

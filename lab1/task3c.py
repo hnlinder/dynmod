@@ -8,7 +8,7 @@ alpha = .9
 beta = 2
 q = .3
 
-Nr = 14
+    Nr = 14
 tmax = 3600 * 100
 dt = 1/2
 
