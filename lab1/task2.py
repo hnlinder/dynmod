@@ -34,30 +34,34 @@ def valid_move(lattice, i):
 # rib_index = np.where(lattice>0)[0]
 # print(rib_index)
 proteins_produced = 0
-occupied = 0
-for t in range(len(tarr)):
-    rib_index = np.where(lattice>0)[0]
-    # print(rib_index)
-    np.random.shuffle(rib_index)
-    for i in rib_index:
-        if i != L-1:
-            if ((rand() < dt * q) and valid_move(lattice,i)):
-                lattice[i+1] += 1
-                lattice[i] -= 1
+alpha_array = np.linspace(.2, 1, 5)
+beta_array = [.25, .5]
+occupied = np.zeros(alpha_array * beta_array)
+for alpha in alpha_array:
+    for beta in beta_array:
+        for t in range(len(tarr)):
+            rib_index = np.where(lattice>0)[0]
+            # print(rib_index)
+            np.random.shuffle(rib_index)
+            for i in rib_index:
+                if i != L-1:
+                    if ((rand() < dt * q) and valid_move(lattice,i)):
+                        lattice[i+1] += 1
+                        lattice[i] -= 1
 
 
-            # lattice[i+1] += ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
-            # lattice[i] -= ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
+                    # lattice[i+1] += ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
+                    # lattice[i] -= ((rand() < q) and (lattice[i+1] == 0) and (lattice[i] > 0))
 
-    lattice[0] += ((lattice[0]==0) and (rand() < dt * alpha))
-    if ((lattice[L-1]>0)):
-        occupied +=1
-        if (rand() < dt * beta):
-            lattice[L-1] -= 1
-            proteins_produced +=1
-    print(f"{lattice}\n")
-    # sleep(.1)
-print(proteins_produced)
+            lattice[0] += ((lattice[0]==0) and (rand() < dt * alpha))
+            if ((lattice[L-1]>0)):
+                occupied +=1
+                if (rand() < dt * beta):
+                    lattice[L-1] -= 1
+                    proteins_produced +=1
+            # print(f"{lattice}\n")
+            # sleep(.1)
+        print(proteins_produced)
 
-print(f"Occupational probability : {occupied/len(tarr)}")
+        print(f"Occupational probability : {occupied/len(tarr)}")
 

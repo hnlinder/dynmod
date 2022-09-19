@@ -4,11 +4,11 @@ from numpy.random import rand
 from time import sleep
 
 L  = 30
-alpha = .9
-beta = 2
+# alpha = .9
+# beta = 2
 q = .3
 
-    Nr = 14
+Nr = 14
 tmax = 3600 * 100
 dt = 1/2
 
@@ -30,7 +30,7 @@ class mRNA:
         self.ribs = ribs
 
     # one time step of the ribosomes
-    def rib_step(self, proteins_produced, Nr):
+    def rib_step(self, proteins_produced, Nr, alpha, beta ):
         rib_index = np.where(self.lattice>0)[0]
         np.random.shuffle(rib_index)
         for i in rib_index:
@@ -70,27 +70,33 @@ class LM:
 def valid_move(lattice, i):
     return (lattice[i+1] == 0) and (lattice[i] > 0)
 
-ind = 0
-proteins_produced = np.zeros(len(tarr))
+
 lm = LM()
 lm.create_mRNA()
 # main loop
-for t in range(len(tarr)):
-    proteins_produced[ind] = proteins_produced[ind - 1]
-    # make new mrna
-    if (1*kp_mrna * dt > rand())  :
-        lm.create_mRNA()
-    # Do a time step with ribosomes for each mRNA
-    for index, mrna in enumerate(lm.matr):
-        proteins_produced[ind], Nr = mrna.rib_step(proteins_produced[ind], Nr)
-        # remove mrna
-        if (1*kd_mrna * dt > rand()):
-            Nr += lm.remove_mRNA(index)
-        # print(mrna.lattice)
-    # sleep(.1)
+for alpha in np.linspace(.2, 1, 5):
+    for beta in [.25, .5]:
+        ind = 0
+        proteins_produced = np.zeros(len(tarr))
+        for t in range(len(tarr)):
+            proteins_produced[ind] = proteins_produced[ind - 1]
+            # make new mrna
+            if (1*kp_mrna * dt > rand())  :
+                lm.create_mRNA()
+            # Do a time step with ribosomes for each mRNA
+            for index, mrna in enumerate(lm.matr):
+                proteins_produced[ind], Nr = mrna.rib_step(proteins_produced[ind], Nr, alpha, beta)
+                # remove mrna
+                if (1*kd_mrna * dt > rand()):
+                    Nr += lm.remove_mRNA(index)
+                # print(mrna.lattice)
+            # sleep(.1)
 
-    # print(Nr)
-    ind +=1
+            # print(Nr)
+            ind +=1
+        plt.figure()
+        plt.title(f"alpha : {alpha}, beta = {beta}")
+        plt.ylim([0, 130])
+        plt.plot(tarr, proteins_produced)
 
-plt.plot(tarr, proteins_produced)
 plt.show()
