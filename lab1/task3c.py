@@ -12,7 +12,7 @@ Nr = 14
 tmax = 3600 * 100
 dt = 1/2
 
-kp = 1/60
+kp = 1/600
 kd = 1/1800
 Np0 = 0
 kd_rib = 1/1800
@@ -87,7 +87,7 @@ for alpha in np.linspace(.2, 1, 5):
             for index, mrna in enumerate(lm.matr):
                 proteins_produced[ind], Nr = mrna.rib_step(proteins_produced[ind], Nr, alpha, beta)
                 # remove mrna
-                if (1*kd_mrna * dt > rand()):
+                if (1*kd_mrna * dt * N > rand()):
                     Nr += lm.remove_mRNA(index)
                 # print(mrna.lattice)
             # sleep(.1)

@@ -1,0 +1,243 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec9.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+
+\section{lab discussion}
+check if the mean occupation is too high, then you wont reproduce the plot J against alpha
+
+\section{Repetition}
+Diffusion
+
+target search 
+
+if there's a target in the cell, how long for a protein to find the target? 
+%fig 1 
+
+Expected time : 
+
+\begin{equation}
+	\tau_{on}  \approx 2 - 20 s
+\end{equation}
+
+%fig 2
+in the case where the protein is looking for the target on DNA, there is a probability that in will bind to the wrong place on the DNA, unspecific binding. This is solved by the fact that the protein can diffuse while bein weakly bound, this is called \textit{facilitated diffusion}
+
+back of envelope calculation gives 
+
+\begin{equation}
+	\tau_{on} \approx 2 s
+\end{equation}
+however that assumes a large diffusion constant $D = \frac{5(m\mu)^2}{s}$, for DNA it may be a hundred times smaller
+
+diffusion on surfaces is very different than in a volume, the energy landscape is different
+%fig3 
+%fig4
+
+
+
+\section{Anomaloous diffusion}
+Mean-squared distance= MSD = $<(\vec r(t) - \vec r(0))^2>$
+%fig 5
+laq of large number, will tend to gaussian.
+
+\begin{equation}
+	\bar x = \frac{x_1 + x_2 + ... + x_n}{n}\leftarrow \mu
+\end{equation}
+\begin{equation}
+	Var (\bar x) = \frac{\sigma ^2}{n}
+\end{equation}
+if you have a fat tail on your sdistribution and draw random numbers from it, the integral  may never converge.
+
+ex: 
+\begin{equation}
+	f(x) \propto \frac{1}{x^\alpha}
+\end{equation}
+\begin{equation}
+	\int xf(x) = \infty
+\end{equation}
+
+ergodicity: can you reach the entire lattice frem your starting point? if so, then ergotic, otherwise ergodicity breaking. 
+%fig 6
+
+weak regodicity breaking: you can in theory reach every point, but the expected time is longer than the time limit of the system. 
+
+when you have weak EB, time average $\neq $ ensemble average
+
+in bacteria, you can have super-diffusion, since they have flagella and active propulsion. 
+
+this is an active field of research. 
+
+
+theoretical example for sub-diffusion, the comb model
+
+track x movement, it can move along a vertical tube to infinity. for every perp tube, draw a waiting time from a power law distribution. will simulate a sub-diffusion movement in x-dir. 
+\begin{equation}
+	P_r = t ^{-3/2}
+\end{equation}
+
+Lévy-walk: take step-length from a power law distribution. get super diffusion. only real-world example arealbatross, they can fly very far. 
+
+%When you have 
+
+fractional derivatives show up in the continuous time random walk. 
+
+
+\begin{equation}
+	L[\dv{f}{t}] = sf(s) - f(0)
+\end{equation}
+
+\begin{equation}
+	L^{-1}(s^{1/2}f(s)) \equiv \dv [\alpha ]{f}{t}
+\end{equation}
+
+
+
+
+
+
+
+
+\section{Stochastic dynamics}
+
+\begin{equation}
+	\dv {m}{t} = \alpha - \beta m
+\end{equation}
+\begin{equation}
+	\bar m =  \frac{\alpha }{\beta}
+\end{equation}
+
+%fig 8 
+
+
+%fig 9 
+Avergae dynamics is fairly easy ,but what about fluctuations? 
+
+Sources of noise : 
+
+-stochastic binding (TF, RNAp, ribo, ...)
+
+-Copy numbers (e.g. \# TFs)
+
+-Diffusion (random process)
+
+-Crowding (Cell is filled with stuff (particles/proteins/DNA), all moving around, TF needs to navigate through it all by diffusion)
+
+\subsection{Distribution of \# proteins per mRNA in the cell}
+How many times will an mRNA be read by ribosomes before it decays? 
+
+%prob (n prot. )
+it's an exponential distribution. 
+
+Prob (1 protein) = Prob(1 synthesis, 1 decay) = Prob(1 synth)Prob(decay) = p(1-p)
+Prob (2 proteins)  = $P^2$(1-P)
+Prob (n proteins)  = $P^n$(1-P)
+
+geometric distribution
+
+Assume fast translation -> p$\approx$ 1 $\longrightarrow$ p = 2-q
+
+%fig 10
+gives
+
+\begin{equation}
+	p^n(1-p) = (1-q)^nq = q e^{n\ln(1-q)\approx q e^{-nq}}
+\end{equation}
+
+How do we calc p or q ? 
+
+$k_d$ = decay rate [1/s]
+
+$k_T$ = translation rate [1/s]
+
+total rate: $k_T + K_d \longrightarrow$
+\begin{equation}
+	p = \frac{K_T}{k_T + K_d}
+\end{equation}
+\begin{equation}
+	q = \frac{K_d}{k_T + K_d}
+\end{equation}
+Average protein number $<n>$
+\begin{equation}
+	\begin{split}
+		<n> &= \sum_{n =0 }^\infty n Prob(n \text{ proteins})\\
+			&\approx \int _0 ^\infty n \frac{1}{q}e^{-nq}\dd n \\
+			&= \frac{1}{q}\\
+			&= 1 + \frac{K_T}{K_d}
+	\end{split}
+\end{equation}
+Which is an exponential dist. 
+
+
+poisson dist.  : if you have a certain time int, that's poisson dist. \# mRNAs follows poisson. 
+
+%fig 11
+How many RNAp binding events do we get in $\tau_{eff}\longrightarrow$ Poisson. dist. 
+	
+\begin{equation}
+	P(n) = \frac{<n>^n}{n!}e^{-<n>}
+\end{equation}
+
+researchres use two metrics to quantify noise: 
+- Coeffcient of variation = CV = 
+\begin{equation}
+	\frac{\text{Spread }}{\text{mean}} = \frac{\sqrt{<n^2> - <n>^2}}{<n>}	
+\end{equation}
+-Fano factor : 
+\begin{equation}
+	 \frac{{<n^2> - <n>^2}}{<n>}	
+\end{equation}
+
+Exponential dist. :
+
+CV = 1, Fano= 1/<n>
+
+Poisson dist. :
+
+CV = 1/$\sqrt{<n>}$, Fano =1
+
+1/$\sqrt n $ is the convergence rate for data collection
+
+interesting because if the Fano factor is not 1, you know ther's a poisson dist, and you can talk about burstineess. 
+
+Golding et al (2010?) in nature or science measured \# of mRNA/proteins/etc for many diffrerent genes
+and found that it had a shape like pretty close to poisson. 
+%fig 12 
+then calculated the fano fact. Average Fano fact. was 1.6, 
+
+high fano indicates burstiness.
+
+some genes are very bursty, some are not. 
+
+positive feedback: bound RNAp may help bind other RNAps. 
+
+super coiling may be another explanation
+
+
+
+
+
+%\begin{equation}
+	%\text{Prob(1 protein)}
+%\end{equation}
+
+
+
+
+
+
+
+
+
+
+\end{document}

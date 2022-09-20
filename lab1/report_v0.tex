@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{report v0.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+Given the rates of protein production and decay as 
+\begin{equation}
+	k_p^{mRNA} = \frac{1}{600}[s^{-1}],\quad k_d = \frac{1}{1800}N_p[s^{-1}],
+\end{equation}
+we can describe the change in number of proteins $N_p$ as a function of time with the ODE 
+\begin{equation}
+	\label{eq:protein_ODE}
+	\dv {N_p}{t} = k_p^{mRNA}  - k_dN_p .
+\end{equation}
+By setting $\dv {N_p}{t} = 0 $, we can see that we get a steady state solution when $k_p^{mRNA} = k_dN_p$, or 
+\begin{equation}
+	\label{eq:steady_state}
+	N_p = 3.
+\end{equation}
+
+
+\begin{figure}[H]
+	\centering
+\includegraphics[width = \linewidth]{figs/task1_results_v3.eps}
+	\label{fig:task1_results}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \linewidth]{figs/task2_prot_prod_v4.eps}
+	\label{fig:task1_results}
+\end{figure}
+
+\end{document}
