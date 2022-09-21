@@ -154,38 +154,39 @@ def check_rates(codon_seq):
     for codon in codon_seq:
         print(codon.rate)
 
-def write_codonseq(codon_seq):
+def write_codonseq(codon_seq, filename):
     codstr = ""
     ratestr  = ""
     for codon in codon_seq:
         codstr = codstr + str(codon.codon)
-        ratestr = ratestr = str(codon.rate)
+        ratestr = ratestr +","+ str(codon.rate)
 
     # np.savetxt("simdata_task4.txt", codstr)
-    with open("simdata_task4.txt", "a+") as f:
-        f.write(codstr)
-        f.write(ratestr)
+    with open(filename, "a+") as f:
+        f.write(f"{codstr}\n")
+        # f.write(f"{ratestr}\n")
 
 
 
 
 codon_seq = read_codons(bp_seq)
-shuffled_codons = randomize_codons(codon_seq)
-get_rates(shuffled_codons)
+# shuffled_codons = randomize_codons(codon_seq)
+# get_rates(shuffled_codons)
 
 # check_rates(shuffled_codons)
 
 #--------------------------------------------------------------------------------------------------
 # main loop part
-nr_tries = 2
+nr_tries = 100
+filename = "simdata_task4_unshuffled_v1.txt"
 occupied = np.zeros(nr_tries)
 proteins_produced = np.zeros([nr_tries, len(tarr)])
 mrna_prod_decay = 1
 J = np.zeros(nr_tries)
 # lm.create_mRNA(0)
+
 # main loop
 for n in range(nr_tries):
-    codon_seq= randomize_codons(codon_seq)
     get_rates(codon_seq)
     # initiate lattice matrix
     lm = LM()
@@ -197,21 +198,25 @@ for n in range(nr_tries):
             lm.create_mRNA(t)
         # Do a time step with ribosomes for each mRNA
         for index, mrna in enumerate(lm.matr):
-            proteins_produced[n ,ind], Nr, end_occupied = mrna.rib_step(proteins_produced[n, ind], Nr, shuffled_codons)
+            proteins_produced[n ,ind], Nr, end_occupied = mrna.rib_step(proteins_produced[n, ind], Nr,codon_seq)
             occupied[n] += end_occupied
             # remove mrna
             if ((mrna_prod_decay*kd_mrna * dt * lm.nr_mRNAs[t] > rand()) ):
                 Nr += lm.remove_mRNA(index, t)
 
         ind +=1
-    plt.figure()
-    # plt.ylim([0,130])
-    plt.plot(tarr, proteins_produced[n,:])
+    # plt.figure()
+    # # plt.ylim([0,130])
+    # plt.plot(tarr, proteins_produced[n,:])
 
     J[n] = occupied[n]/len(tarr)*codon_seq[-1].rate
-    write_codonseq(codon_seq)
-np.savetxt("simdata_task4.txt",J)
-np.savetxt("simdata_task4.txt",proteins_produced)
+    print(J)
+    write_codonseq(codon_seq, filename)
+    # codon_seq= randomize_codons(codon_seq)
+
+with open(filename, "a+") as f:
+    np.savetxt(f,J)
+# np.savetxt("simdata_task4.txt",proteins_produced)
 
 print(f"nr_mRNAs : {lm.nr_mRNAs}\nAverage nr of mRNAs : {np.mean(lm.nr_mRNAs)}")
 # np.savetxt("nr_mrnas.txt", lm.nr_mRNAs)

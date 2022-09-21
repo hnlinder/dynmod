@@ -88,41 +88,48 @@ def valid_move(lattice, i):
 
 # lm.create_mRNA(0)
 # main loop
+graph_type = ["-", "-."]
 prot_prod_decay = 0
 alpha_arr = [.9]#np.linspace(0,1, 10):
 beta_arr = [2]# [.25, .5]
-for alpha in alpha_arr:
-    for beta in beta_arr:
-        lm = LM()
-        lm.create_mRNA(0)
-        ind = 0
-        proteins_produced = np.zeros(len(tarr))
-        for t in range(len(tarr)):
-            proteins_produced[ind] = proteins_produced[ind - 1]
-            # make new mrna
-            if (prot_prod_decay*kp_mrna * dt > rand())  :
-                lm.create_mRNA(t)
-            # Do a time step with ribosomes for each mRNA
-            for index, mrna in enumerate(lm.matr):
-                proteins_produced[ind], Nr = mrna.rib_step(proteins_produced[ind], Nr, alpha, beta)
-                # remove mrna
-                if (prot_prod_decay*kd_mrna * dt * lm.nr_mRNAs[t] > rand()):
-                    # print(lm.nr_mRNAs[-1])
-                    Nr += lm.remove_mRNA(index, t)
-                # print(mrna.lattice)
-            # sleep(.1)
+for prot_prod_decay in [0,1]:
+    for alpha in alpha_arr:
+        for beta in beta_arr:
+            lm = LM()
+            lm.create_mRNA(0)
+            ind = 0
+            proteins_produced = np.zeros(len(tarr))
+            for t in range(len(tarr)):
+                proteins_produced[ind] = proteins_produced[ind - 1]
+                # make new mrna
+                if (prot_prod_decay*kp_mrna * dt > rand())  :
+                    lm.create_mRNA(t)
+                # Do a time step with ribosomes for each mRNA
+                for index, mrna in enumerate(lm.matr):
+                    proteins_produced[ind], Nr = mrna.rib_step(proteins_produced[ind], Nr, alpha, beta)
+                    # remove mrna
+                    if (prot_prod_decay*kd_mrna * dt * lm.nr_mRNAs[t] > rand()):
+                        # print(lm.nr_mRNAs[-1])
+                        Nr += lm.remove_mRNA(index, t)
+                    # print(mrna.lattice)
+                # sleep(.1)
 
-            # print(Nr)
-            ind +=1
-        print(f"mean nr MRNAs: {np.mean(lm.nr_mRNAs)}")
-        sleep(.5)
-        plt.figure()
-        # plt.title(f"alpha : {alpha}, beta = {beta}")
-        # plt.ylim([0, 130])
-        plt.plot(tarr, proteins_produced)
+                # print(Nr)
+                ind +=1
+            print(f"mean nr MRNAs: {np.mean(lm.nr_mRNAs)}")
+            # sleep(.5)
+            # plt.figure()
+            # plt.title(f"alpha : {alpha}, beta = {beta}")
+            # plt.ylim([0, 130])
+            if prot_prod_decay:
+                legend_lable = "Multiple mRNAs"
+            else :
+                legend_lable = "One mRNA"
+            plt.plot(tarr, proteins_produced,graph_type[prot_prod_decay], label=legend_lable)
 
-fano = np.var(proteins_produced)/np.mean(proteins_produced)
-print(f"Fano factor : {fano}")
+    fano = np.var(proteins_produced)/np.mean(proteins_produced)
+    print(f"Fano factor : {fano}")
 plt.xlabel("Time [s]")
 plt.ylabel("Proteins produced [1]")
+plt.legend(loc="best")
 plt.show()

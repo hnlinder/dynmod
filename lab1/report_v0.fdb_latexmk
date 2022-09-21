@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1663710514 "report_v0.tex" "report_v0.pdf" "report_v0" 1663710514
+["pdflatex"] 1663794594 "report_v0.tex" "report_v0.pdf" "report_v0" 1663794594
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1650183167 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -65,8 +65,9 @@
   "figs/task1_results_v3.eps" 1663701455 3351635 690e610250597c0dda0ada3514535a84 ""
   "figs/task2_meanfield_v4.eps" 1663706245 26002 0e753b0960a35f74528ccfcb466812f5 ""
   "figs/task2_prot_prod_v4.eps" 1663701886 699476 d914f42b0ab912f44015a46187081c0c ""
-  "report_v0.aux" 1663710514 307 423415b1695412b6a5ff9460beeb6ec5 "pdflatex"
-  "report_v0.tex" 1663710512 1422 bb0758fbce172b6c9667727b537114d0 ""
+  "figs/task3_prot_prod_both_graphs_v1.eps" 1663782907 340742 3632b2f4809d0c9a5b43f8bcacca84fd ""
+  "report_v0.aux" 1663794594 429 e5168c0c3bd4a7230fc48e45c8d63b4b "pdflatex"
+  "report_v0.tex" 1663794590 3109 83eb260e1443e5948d9828537d4adb92 ""
   (generated)
   "report_v0.aux"
   "report_v0.log"

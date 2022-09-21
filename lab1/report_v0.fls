@@ -329,6 +329,17 @@ INPUT ./figs/task2_meanfield_v4-eps-converted-to.pdf
 INPUT ./figs/task2_meanfield_v4-eps-converted-to.pdf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ./figs/task3_prot_prod_both_graphs_v1.eps
+INPUT ./figs/task3_prot_prod_both_graphs_v1.eps
+INPUT figs/task3_prot_prod_both_graphs_v1.eps
+INPUT ./figs/task3_prot_prod_both_graphs_v1.eps
+INPUT ./figs/task3_prot_prod_both_graphs_v1.eps
+INPUT ./figs/task3_prot_prod_both_graphs_v1-eps-converted-to.pdf
+INPUT ./figs/task3_prot_prod_both_graphs_v1-eps-converted-to.pdf
+INPUT ./figs/task3_prot_prod_both_graphs_v1.eps
+INPUT ./figs/task3_prot_prod_both_graphs_v1-eps-converted-to.pdf
+INPUT ./figs/task3_prot_prod_both_graphs_v1-eps-converted-to.pdf
+INPUT ./figs/task3_prot_prod_both_graphs_v1-eps-converted-to.pdf
 INPUT report_v0.aux
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

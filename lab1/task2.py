@@ -6,12 +6,12 @@ from time import sleep
 
 L  = 30
 
-alpha = .1
+# alpha = .1
 beta = .5
 q = 1
 
 tmax = 60 * 1000
-dt = 1
+dt = .2
 
 kp = 1/600
 kd = 1/1800
