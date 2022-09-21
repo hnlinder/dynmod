@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.7.5)  20 SEP 2022 21:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.7.5)  20 SEP 2022 23:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -130,11 +130,7 @@ File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box54
 ))
 Package: xparse 2022-01-12 L3 Experimental document command parser
-)) (./report_v0.aux
-
-LaTeX Warning: Label `fig:task1_results' multiply defined.
-
-)
+)) (./report_v0.aux)
 \openout1 = `report_v0.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
@@ -196,13 +192,11 @@ Package epstopdf Info: Source file: <figs/task2_prot_prod_v4.eps>
 (epstopdf)                    date: 2022-09-20 21:24:46
 (epstopdf)                    size: 699476 bytes
 (epstopdf)             Output file: <figs/task2_prot_prod_v4-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-09-20 21:25:11
+(epstopdf)                    size: 138550 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs/task2_prot_prod_v4-eps-converted-to.pdf figs/task2_prot_prod_v4.eps>
 (epstopdf)             \includegraphics on input line 39.
-runsystem(repstopdf --outfile=figs/task2_prot_prod_v4-eps-converted-to.pdf figs/task2_prot_prod_v4.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <figs/task2_prot_prod_v4-eps-converted-to.pdf>
-(epstopdf)                    date: 2022-09-20 21:25:11
-(epstopdf)                    size: 138550 bytes.
+Package epstopdf Info: Output file is already uptodate.
 <figs/task2_prot_prod_v4-eps-converted-to.pdf, id=2, 463.7325pt x 347.2975pt>
 File: figs/task2_prot_prod_v4-eps-converted-to.pdf Graphic file (type pdf)
 <use figs/task2_prot_prod_v4-eps-converted-to.pdf>
@@ -210,24 +204,40 @@ Package pdftex.def Info: figs/task2_prot_prod_v4-eps-converted-to.pdf  used on i
 (pdftex.def)             Requested size: 345.0pt x 258.37924pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figs/task1_results_v3-eps-converted-to.pdf>] [2 <./figs/task2_prot_prod_v4-eps-converted-to.pdf>] (./report_v0.aux)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figs/task1_results_v3-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figs/task2_meanfield_v4.eps>
+(epstopdf)                    date: 2022-09-20 22:37:25
+(epstopdf)                    size: 26002 bytes
+(epstopdf)             Output file: <figs/task2_meanfield_v4-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-09-20 22:51:58
+(epstopdf)                    size: 18110 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/task2_meanfield_v4-eps-converted-to.pdf figs/task2_meanfield_v4.eps>
+(epstopdf)             \includegraphics on input line 45.
+Package epstopdf Info: Output file is already uptodate.
+<figs/task2_meanfield_v4-eps-converted-to.pdf, id=54, 463.7325pt x 347.2975pt>
+File: figs/task2_meanfield_v4-eps-converted-to.pdf Graphic file (type pdf)
+<use figs/task2_meanfield_v4-eps-converted-to.pdf>
+Package pdftex.def Info: figs/task2_meanfield_v4-eps-converted-to.pdf  used on input line 45.
+(pdftex.def)             Requested size: 345.0pt x 258.37924pt.
+ [2 <./figs/task2_prot_prod_v4-eps-converted-to.pdf>]
+Overfull \hbox (54.27895pt too wide) in paragraph at lines 52--53
+\OT1/cmr/m/n/10 fano1 : 1.1537323139033988, 1.0293234725437235, 1.1255733414025437, 0.9870385180083185 
+ []
 
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+[3 <./figs/task2_meanfield_v4-eps-converted-to.pdf>] (./report_v0.aux) ) 
 Here is how much of TeX's memory you used:
- 3372 strings out of 478238
- 48065 string characters out of 5850457
- 339432 words of memory out of 5000000
- 21587 multiletter control sequences out of 15000+600000
- 475902 words of font info for 55 fonts, out of 8000000 for 9000
+ 3384 strings out of 478238
+ 48454 string characters out of 5850457
+ 339407 words of memory out of 5000000
+ 21597 multiletter control sequences out of 15000+600000
+ 476507 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,6n,77p,337b,231s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report_v0.pdf (2 pages, 13892133 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report_v0.pdf (3 pages, 13915814 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 189 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

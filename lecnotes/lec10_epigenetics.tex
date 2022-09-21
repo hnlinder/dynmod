@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec10_epigenetics.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Repetition}
+Anomalous diffusion
+
+Burstiness, noise. 
+
+Probability distribution of prots and mrnas
+
+\#proteins: 
+\begin{equation}
+	q = \frac{K_D}{K_D + K_T}
+\end{equation}
+\begin{equation}
+	P(n) \approx q e^{-qn}
+\end{equation}
+
+\# mRNAs, 
+\begin{equation}
+	P(n) \approx \text{Poisson}
+\end{equation}
+
+\textit{Burstiness}
+
+Measure of dispersion from the mean of the distribution
+
+Fano factor: 
+\begin{equation}
+	Fano = \frac{<n^2> - <n>^2}{<n>}
+\end{equation}
+
+if you have one protein per mRNA, then a fano of 4 means they com ein bursts of 4. 
+
+if you have ten proteins per mRNA, then a fano of 4 means they com ein bursts of 40
+
+for poisson distr., fano = 1
+
+\section{Epigenetics}
+\textit{Above or beyond genetics}
+Epigenetics is more of a volume knob that controls the expression of the entire cell. 
+
+But disordered vollume, different responses for different places on the DNA. 
+
+Came after genetics, after the genome had been mapped, we still didn't understand how it worked. 
+
+From book: DNA is less like a template/mold, and more like a script for a play. 
+
+this is one reason that identical twins are not exactly the same. 
+
+phenotypic differences: differences in shape/size/look
+
+Foetal origin of adult disease (FOAD). For example, drinking while pregnant may affect epigenetics of foetus, affecting their affinity for diseases later in life. 
+
+Epigenetic changes may persist over generations. 
+
+For example, during dutch hunger winter, some babies who were starved late in pregnancy, ended up small. Those who were starved early but then recovered are normal size but with a higher risk of metabolic diseases. Their children had higher rates as well. 
+
+epigenetics determine cell types. they all have the same DNA but it is expressed differently.
+
+(check out yamanaka/yamanaka factors)
+
+
+Waddington's epigenetic landscape, a qualitative model
+
+State of the art: \textit{Molecular epigenetics}
+
+modifying the genetic matieral without actually altering the genes. Much easier to change than the genes themselves with f.e. crispr. 
+
+
+The folding of the DNA is very important for the expression of genes. It's wrapped around histones. Histone tails are available. You can add epigenetic factors to the histones that affect the tail. You can affect the gene expression by changing the protein complexes than attach epigenetic factors to the histone. 
+
+Called \textit{Histone modification }
+
+\textit{DNA methylation} is another way to regulation, adding mathyl groups that can tag DNA and make it more or less accessible. better understood than histone modification. 
+
+differens typs of EFs : writers, erasers, readers. 
+
+if you changge the proportions of these, affecting gene expression. without changing the actual numbers, you can also change how they work for the same effect, pushing the equilibrium of reading/writing.
+
+
+epigenetics is both the mechanism and the phenomenon. 
+
+
+
+
+\subsection{epigenetics and aging}
+solid evidence connecting epigenetics and aging
+
+epigenetic theory of aging: it's the upstream cause of all aging. controversial, but it's definitely connected. 
+
+if you start to lose methylation marks, you start to lose cell identity, which is a sign of aging. 
+
+if we can change the epigenetics then, you may be able to even reverse aging. david sinclair was able to show this in mice. 
+
+epigenetic clock: tracks CpG sites, look at methylation state, make a number, that epigenetic age. 
+
+david's idea is reprogramming these sites, reversing aging or correcting accelerated aging. 
+
+\textit{ master's thesis, check it out }
+
+would be setting up a model, can you affect the clock by changing the epigenetics 
+
+
+
+\section{Lab 2: epigenetics}
+Yeast epigenetics, writers and erasers, and bi-stable dunamics. 
+
+pitchfork bifurcations
+
+Very well-understood system, one epigenetically repressed gene. 
+
+DNA is never a naked helix in the cell, the mixture of DNA and proteins that form the chromosomes found in the cells of humans and other higher organisms is called chromatin. 
+
+the lab is about simulating the reading/erasing and finding that it is a bi-stable system. 
+
+
+derivable eqs: p. 128 in book 
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

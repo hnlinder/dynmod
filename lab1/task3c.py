@@ -6,9 +6,9 @@ from time import sleep
 L  = 30
 # alpha = .9
 # beta = 2
-q = .3
+q = 1
 
-Nr = 14
+Nr = 4
 tmax = 3600 * 100
 dt = 1/2
 
@@ -53,50 +53,76 @@ class mRNA:
         return proteins_produced, Nr
 
 
+# class LM:
+    # def __init__(self, mRNA = mRNA(), matr = []):
+        # self.mRNA = mRNA
+        # self.matr = matr
+
+    # def create_mRNA(self):
+        # self.matr.append(mRNA(np.zeros(L)))
+
+    # def remove_mRNA(self, index):
+        # ribs = np.sum(self.matr[index].lattice)
+        # del(self.matr[index])
+        # return ribs
+
 class LM:
-    def __init__(self, mRNA = mRNA(), matr = []):
+    def __init__(self, mRNA = mRNA(), matr = [], nr_mRNAs = np.zeros(len(tarr))):
         self.mRNA = mRNA
         self.matr = matr
+        self.nr_mRNAs = nr_mRNAs
 
-    def create_mRNA(self):
+    def create_mRNA(self, t):
         self.matr.append(mRNA(np.zeros(L)))
+        self.nr_mRNAs[t:] += 1
 
-    def remove_mRNA(self, index):
+    def remove_mRNA(self, index, t):
         ribs = np.sum(self.matr[index].lattice)
         del(self.matr[index])
+        self.nr_mRNAs[t:] -= 1
         return ribs
-
 
 def valid_move(lattice, i):
     return (lattice[i+1] == 0) and (lattice[i] > 0)
 
 
-lm = LM()
-lm.create_mRNA()
+# lm.create_mRNA(0)
 # main loop
-for alpha in np.linspace(.2, 1, 5):
-    for beta in [.25, .5]:
+prot_prod_decay = 0
+alpha_arr = [.9]#np.linspace(0,1, 10):
+beta_arr = [2]# [.25, .5]
+for alpha in alpha_arr:
+    for beta in beta_arr:
+        lm = LM()
+        lm.create_mRNA(0)
         ind = 0
         proteins_produced = np.zeros(len(tarr))
         for t in range(len(tarr)):
             proteins_produced[ind] = proteins_produced[ind - 1]
             # make new mrna
-            if (1*kp_mrna * dt > rand())  :
-                lm.create_mRNA()
+            if (prot_prod_decay*kp_mrna * dt > rand())  :
+                lm.create_mRNA(t)
             # Do a time step with ribosomes for each mRNA
             for index, mrna in enumerate(lm.matr):
                 proteins_produced[ind], Nr = mrna.rib_step(proteins_produced[ind], Nr, alpha, beta)
                 # remove mrna
-                if (1*kd_mrna * dt * N > rand()):
-                    Nr += lm.remove_mRNA(index)
+                if (prot_prod_decay*kd_mrna * dt * lm.nr_mRNAs[t] > rand()):
+                    # print(lm.nr_mRNAs[-1])
+                    Nr += lm.remove_mRNA(index, t)
                 # print(mrna.lattice)
             # sleep(.1)
 
             # print(Nr)
             ind +=1
+        print(f"mean nr MRNAs: {np.mean(lm.nr_mRNAs)}")
+        sleep(.5)
         plt.figure()
-        plt.title(f"alpha : {alpha}, beta = {beta}")
-        plt.ylim([0, 130])
+        # plt.title(f"alpha : {alpha}, beta = {beta}")
+        # plt.ylim([0, 130])
         plt.plot(tarr, proteins_produced)
 
+fano = np.var(proteins_produced)/np.mean(proteins_produced)
+print(f"Fano factor : {fano}")
+plt.xlabel("Time [s]")
+plt.ylabel("Proteins produced [1]")
 plt.show()
