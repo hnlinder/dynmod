@@ -11,7 +11,7 @@ beta = .5
 q = 1
 
 tmax = 60 * 1000
-dt = .2
+dt = .5
 
 kp = 1/600
 kd = 1/1800
@@ -33,7 +33,7 @@ def valid_move(lattice, i):
     return (lattice[i+1] == 0) and (lattice[i] > 0)
 # rib_index = np.where(lattice>0)[0]
 # print(rib_index)
-alpha_array = np.linspace(0, 1,20)
+alpha_array = np.linspace(0, 1,2)
 
 beta_array = [.25, .5]
 
@@ -94,6 +94,12 @@ plt.legend(loc="best")
 plt.xlabel("Time [s]")
 plt.ylabel("Proteins produced [1]")
 
+fano = []
+for a in range(len(alpha_array)):
+    for b in range(len(beta_array)):
+        print(proteins_produced[a,b,:])
+        print(np.mean(proteins_produced[a,b,:]))
+        fano.append(np.var(proteins_produced[a,b,:])/np.mean(proteins_produced[a,b,:]))
 J = occupied/len(tarr)*beta_array
 # print(J)
 plt.figure(1)
