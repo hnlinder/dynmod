@@ -7,11 +7,11 @@ from time import sleep
 L  = 30
 
 # alpha = .1
-beta = .5
+# beta = .5
 q = 1
 
 tmax = 60 * 1000
-dt = .5
+dt = .1
 
 kp = 1/600
 kd = 1/1800
@@ -33,9 +33,9 @@ def valid_move(lattice, i):
     return (lattice[i+1] == 0) and (lattice[i] > 0)
 # rib_index = np.where(lattice>0)[0]
 # print(rib_index)
-alpha_array = np.linspace(0, 1,2)
+alpha_array = np.linspace(0.01, 1,20)
 
-beta_array = [.25, .5]
+beta_array = [.25 , .5]
 
 # J = np.zeros([len(alpha_array), len(beta_array)])
 
@@ -70,7 +70,7 @@ for a, alpha in enumerate(alpha_array):
                     # print(proteins_produced[a,b,t])
             # print(f"{lattice}\n")
             # sleep(.1)
-            if (rand() < kd * proteins_produced[a,b,t]):
+            if (rand() < kd * proteins_produced[a,b,t]*dt):
                 proteins_produced[a,b,t] -= 1
 
         
@@ -85,21 +85,24 @@ def plot_mean_field():
     alpha_over_half = np.linspace(.5,1,100)
     y1 =  alpha_under_half*(1-alpha_under_half)
     # print(y)
-    plt.plot(alpha_under_half,y1, "r","--")
-    plt.hlines(.25*(1-.25),.2445, 1,"k","--" ,label="Mean-field solution, "+r"$\alpha\leq 0.5,  \beta=0.25$")
-    plt.hlines(.5*(1-.5),.5, 1, "r","-.",label="Mean-field solution, "+r"$\alpha>0.5, \beta=0.5$")
+    plt.plot(alpha_under_half,y1, "r","-")
+    plt.hlines(.25*(1-.25),.2445, 1,"k","-." ,label="Mean-field solution, "+r"$\beta=0.25$")
+    plt.hlines(.5*(1-.5),.5, 1, "r","-",label="Mean-field solution, "+r"$\beta=0.5$")
 # print(occupied/len(tarr)*[1, 0])
 plt.figure(10)
 plt.legend(loc="best")
 plt.xlabel("Time [s]")
 plt.ylabel("Proteins produced [1]")
 
-fano = []
-for a in range(len(alpha_array)):
-    for b in range(len(beta_array)):
-        print(proteins_produced[a,b,:])
-        print(np.mean(proteins_produced[a,b,:]))
-        fano.append(np.var(proteins_produced[a,b,:])/np.mean(proteins_produced[a,b,:]))
+def calc_fano():
+    fano = []
+    meanlength = int(len(tarr)/2)
+    for a in range(len(alpha_array)):
+        for b in range(len(beta_array)):
+            # print(proteins_produced[a,b,:])
+            # print(np.mean(proteins_produced[a,b,:]))
+            fano.append(np.var(proteins_produced[a,b,meanlength:])/np.mean(proteins_produced[a,b,meanlength:]))
+    print(fano)
 J = occupied/len(tarr)*beta_array
 # print(J)
 plt.figure(1)
@@ -108,5 +111,6 @@ plt.plot(alpha_array, J[:,1], label=r"$\beta = 0.5$")
 plt.xlabel(r"$\alpha [s^{-1}]$")
 plt.ylabel(r"$J [s^{-1}]$")
 plot_mean_field()
+calc_fano()
 plt.legend(loc="best")
 plt.show()

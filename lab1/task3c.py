@@ -10,7 +10,7 @@ q = 1
 
 Nr = 4
 tmax = 3600 * 100
-dt = 1/2
+dt = 1/4
 
 kp = 1/600
 kd = 1/1800
@@ -89,28 +89,34 @@ def valid_move(lattice, i):
 # lm.create_mRNA(0)
 # main loop
 graph_type = ["-", "-."]
-prot_prod_decay = 0
+# prot_prod_decay = 0
 alpha_arr = [.9]#np.linspace(0,1, 10):
 beta_arr = [2]# [.25, .5]
 for prot_prod_decay in [0,1]:
+    if prot_prod_decay: 
+        Nr = 8
     for alpha in alpha_arr:
         for beta in beta_arr:
             lm = LM()
             lm.create_mRNA(0)
             ind = 0
             proteins_produced = np.zeros(len(tarr))
+            mrnas = np.zeros(len(tarr))
             for t in range(len(tarr)):
+                mrnas[t] = mrnas[t-1]
                 proteins_produced[ind] = proteins_produced[ind - 1]
                 # make new mrna
                 if (prot_prod_decay*kp_mrna * dt > rand())  :
                     lm.create_mRNA(t)
+                    mrnas[t] += 1
                 # Do a time step with ribosomes for each mRNA
                 for index, mrna in enumerate(lm.matr):
                     proteins_produced[ind], Nr = mrna.rib_step(proteins_produced[ind], Nr, alpha, beta)
                     # remove mrna
-                    if (prot_prod_decay*kd_mrna * dt * lm.nr_mRNAs[t] > rand()):
+                    if (prot_prod_decay*kd_mrna * dt * mrnas[t] > rand()):
                         # print(lm.nr_mRNAs[-1])
                         Nr += lm.remove_mRNA(index, t)
+                        mrnas[t] -= 1
                     # print(mrna.lattice)
                 # sleep(.1)
 
