@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{lec12.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+
+chapters 1-4 in uri alon's book "An introduction to systems biology. "
+
+\section{last lecture}
+--Feed forward loops (FFL)
+
+x promotes y promotes z and x promotes z
+
+x -> y -> z \& x->z
+
+(called a delay element)
+
+-- GRNs (gene regulatory networks)
+
+S1, !2, ....., Sn
+
+the layer separating the Signals from the genes (about 4500) is the transcirtion factors. 
+
+%fig 1 
+
+
+
+
+most common regulatory motif: auto-regulation, x -> x or x -| x
+
+pro's
+
+shorter respons times 
+
+good for homeostasis (can keep itself on a reasonable level )
+
+\begin{equation}
+	\dv{x}{t} = \beta f(x) - \alpha x
+\end{equation}
+\begin{equation}
+	x(t_{1/2}) = \frac{\bar x}{2}
+\end{equation}
+simple reg. : $t_{1/2}= \frac{\ln 2}{\alpha}$ 
+
+self repression : 
+\begin{equation}
+	f(x) = \left(\frac{k}{x}\right) ^2
+\end{equation}
+$t_{1/2} = [h = 1] = 0.2 \frac{\ln2}{\alpha}$
+
+you should know this for exam: calc half times and response times
+
+
+
+
+\section{FFL}
+x->y->z and x->z
+%fig 2
+%fig 3
+
+
+\begin{equation}
+	y(t) = \bar y (1-e^{-\alpha t})
+\end{equation}
+where 
+\begin{equation}
+	\bar y = \frac{\beta_y}{\alpha _y}
+\end{equation}
+add or subtract $Y_0$ in some way to get the appropriate behavior as $t\leftarrow \infty$. 
+
+
+
+prob of binding is associated with a binding const. $K_{yz}$. In order to have enough binding of $y*$, we must hace a concentration above a threshold level. this causes a delay in the production of z. the same is not true for x, we assume the productino of $x*$ is instantaneous. 
+
+effective response time for z is now response time plus delay, so $T_{ON} + \frac{\ln2}{\alpha}$
+
+we are assuming z behaves as an AND gate here. 
+
+%fig 4
+
+now y is repressing z: 
+
+x->y-|z and x->z
+
+z starts growing immediately and then backs down. Called pulse. 
+%fig 5
+
+
+easy to calc delay time $T_{ON}$. 
+
+\begin{equation}
+	y*(t = T{ON}) = k_{yz}
+\end{equation}
+gives 
+\begin{equation}
+	T{ON} = \frac{1}{\alpha _y}\ln\left(\frac{1}{1-\frac{k_yz}{\bar y}}\right)
+\end{equation}
+size of $k_yz$ is micromolar (??)
+$\frac{k_yz}{\bar y}\approx 1/3 \cdot 1/10$
+
+Exam q: given a GRN, how does x affect z or what is the response time of z.
+
+
+
+
+
+
+
+\section{Feedback loops, FBL}
+\section{Types of regulatory links}
+pretty obvious in the previous example. 
+
+Two main link types. The first is basically the previous: 
+
+i) binding to promotors. ex :
+%fig 6
+
+ii) small molecules binding to proteins and protein-protein binding. ex:
+%fig 7
+
+
+example of ii), the lac-operon. 
+%fig 8 
+%fig 9 
+
+when there's no lactose: lecrep blocks transcription of lac Z/Y/A. 
+
+lactose present: => allo-lactose present => lacrep falls off 
+
+this R-E-S system in fig 9 is a very common regulatory motif, e.g. metabolic regulation, stress-response systems. 
+
+
+\subsection{Model R-E-S system}
+
+%fig 10 
+
+
+\begin{equation}
+	\begin{split}
+	\dv {E}{t} = \beta _E f(R)- \alpha_EE\\
+	\dv {S}{t} = \beta _S- \gamma_{ES}ES
+	\end{split}
+\end{equation}
+wherre R is "free R", not bound, 
+\begin{equation}
+	\frac{R_{free}}{k_{ER} + R_{free}}
+\end{equation}
+R + S forms a complex RS. with 
+
+\begin{equation}
+	\frac{RS}{R_{tot}} = \frac{k_{RS}}{k_{RS} + S}
+\end{equation}
+
+\begin{equation}
+	R \frac{k_{RS}}{k_{RS} + S} = \#R \text{not bound by S }
+\end{equation}
+
+
+
+
+
+heat-shoch response: when heat goes up in cell, they produce chaperone proteins that untwist proteins to avoid protein aggregates. This follows a similar regulation network. 
+
+common test for parkinsons : heat up e.coli, let cells divide and all the aggregates will be pushed to one side, collecting all aggregates in one cell . 
+
+
+
+
+
+\end{document}
