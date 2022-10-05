@@ -58,7 +58,7 @@ def update_nr_methylated(nr_methylated,t,inds, nucleosome_chain):
 
 L = 60 #nr of nucleosomes
 tmax = 10000
-filename = "data/task2_nr_methylated_v0.txt"
+filename = "data/dummy.txt"
 
 for F in [10]:#[2, 4, 6]:
     # F = 4

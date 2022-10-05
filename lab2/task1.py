@@ -53,10 +53,32 @@ def update_nr_methylated(nr_methylated,t,inds, nucleosome_chain):
     return nr_methylated
 
 # def save_array_to_file
+def mk_hist(arr, boxwidth, label_string):
+    # histstop = .4
+    plt.figure()
+    histstop = max(arr)
+    # boxwidth = 1
+    nrboxes = histstop/boxwidth
+    bins = np.linspace(0, histstop, int(nrboxes))
+    # bins = [0, .02, .04,.06]
+    plt.hist(arr, bins, label=label_string)
+    # plt.show()
+
+def plot_methylated(nr_methylated, t):
+    plt.figure()
+    x = np.arange(0,t+1)/60
+    plt.plot(x, nr_methylated[-1,:])
+    plt.fill_between(x, nr_methylated[-1,:])
+    plt.xlabel("Time [updates per nucleosome]")
+    plt.ylabel("Number of methylated nucleosomes [1]")
+
+
+
 
 L = 60 #nr of nucleosomes
 tmax = 300000
-filename = "data/task1_nr_methylated_v4_tmax3e6.txt"
+filename = "data/task1_nr_methylated_v6_f6_t3e6.txt"
+write_to_file =True
 
 for F in [6]:#[2, 4, 6]:
     # F = 4
@@ -74,17 +96,15 @@ for F in [6]:#[2, 4, 6]:
             nucleosome_chain[inds[2]].noisy_change()
         nr_methylated = update_nr_methylated(nr_methylated,t,inds, nucleosome_chain)
 
-
-    plt.figure()
-    plt.plot(nr_methylated[0,:])
-    plt.figure()
-    plt.plot(nr_methylated[2,:])
-
+    plot_methylated(nr_methylated, t)
     print("\n--- %s seconds ---" % (time.time() - start_time))
 
+    if write_to_file:
+        with open(filename, "a+") as f:
+            np.savetxt(f, nr_methylated)
 
-    with open(filename, "a+") as f:
-        np.savetxt(f, nr_methylated)
+
+# mk_hist(nr_methylated[-1,:], boxwidth=1, label_string="\# methylated nucleosomes")
 
 # loaded = np.loadtxt(filename)
 # plt.figure()

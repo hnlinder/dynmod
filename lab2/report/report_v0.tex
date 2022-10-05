@@ -7,6 +7,8 @@
 \usepackage{float}
 \usepackage{physics}
 \usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
 \title{report v0.tex }
 \author{Henrik Linder}
 \date{\today}
@@ -33,6 +35,135 @@ for a=m :
 
 
 
-in task4_nr_methylated_v2, and v3 i managed to get one to switch over 
+in task4\_nr\_methylated\_v2, and v3 i managed to get one to switch over 
+
+
+
+
+\section{Task1}
+
+
+\begin{equation}
+	\dv {a}{t} = f = \alpha[a(1-a-m) - am] + (1-\alpha )\left(\frac{1-a-m}{2}  - a\right)
+\end{equation}
+\begin{equation}
+	\dv {m}{t} = g = \alpha[m(1-a-m) - am] + (1-\alpha )\left(\frac{1-a-m}{2}  - m\right)
+\end{equation}
+
+
+
+\subsection{Discussion}
+%\begin{figure}[H]
+	%\centering
+	%\begin{subfigure}[b]{.4\textwidth}
+		%\centering
+		%\includegraphics[width= \linewidth]{figs/task1_F=4_v0.eps}
+		%\caption{F = 2}
+		%\label{fig:task1F=2}
+	%\end{subfigure}
+	%\begin{subfigure}[b]{.4\textwidth}
+		%\centering
+		%\includegraphics[width= \linewidth]{figs/task1_F=4_v0.eps}
+		%\caption{F = 2}
+		%\label{fig:task1 F=4}
+	%\end{subfigure}
+		%\caption{F = 2}
+		%\label{fig:task1}
+%\end{figure}
+$F$ increasing means that the ratio of active recruitment to random conversion between M and A states increases. This means that at high values of F, it is much more likely that a nucleosome is changed by conversion from another nucleosome than by random noise. As random chance has less and less effect, the bistability becomes more pronounced. In the limit, as F approaches infinity, the noise will become negligible and the system will tend to end up in a state of only A or M, and stay that way indefinitely. 
+
+In the other limit, as F approaches 0, the noise dominates and the effect of recruitment becomes negligible. The evolution of the system then becomes a random walk. 
+
+
+
+\section{Task 2}
+\textit{Model 1}
+\begin{equation}
+	\dv {a}{t} = f = \alpha[a(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - a\right)
+\end{equation}
+\begin{equation}
+	\dv {m}{t} = g = \alpha[m(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - m\right)
+\end{equation}
+
+
+
+\textit{Model 2}
+\begin{equation}
+	\dv {a}{t} = f = \alpha[a^2(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - a\right)
+\end{equation}
+\begin{equation}
+	\dv {m}{t} = g = \alpha[m^2(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - m\right)
+\end{equation}
+
+
+\subsection{Discussion}
+%\begin{figure}[H]
+	%\centering
+	%\begin{subfigure}[b]{.4\textwidth}
+		%\centering
+		%\includegraphics[width= \linewidth]{figs/task2_v0-eps-converted-to.pdf}
+		%\caption{F = 2}
+		%\label{fig:task2_F2}
+	%\end{subfigure}
+	%\begin{subfigure}[b]{.4\textwidth}
+		%\centering
+		%\includegraphics[width= \linewidth]{figs/task2_v1}
+		%\caption{F = 2}
+		%\label{fig:task2_F4}
+	%\end{subfigure}
+		%\caption{F = 2}
+		%\label{fig:task2}
+%\end{figure}
+
+In order for bistability to occur, we need a non-linear feedback loop. This is achieved in the previous model by requiring two separate nucleosomes for a full conversion to occur. However, in this model, we only need one, meaning that the conversion only depends linearly on the concentration of A or M. This shows in the fact that the results in this task display no (or at least very little) bistable behavior, despite working at an $F$ that would have been distinctly bistable in the previous model. 
+
+We can add back the non-linearity into the model by requiring two random nucleosomes of the same methylation be picked in order to convert an unmethylated nucleosome into an A or M state. Now the active recruitment once again depend on the square of the concentration of M, so we get the bistable behavior similar to that of the first model. 
+
+
+
+\section{Task3}
+\begin{equation}
+	P(d) \propto d^\gamma
+\end{equation}
+\subsection{Discussion}
+We use $\gamma\in [-1,-3]$. 
+
+$\gamma$ is a constant determining the rate at which the recruitment probability decays with the distance along the nucleosome chain. As $\gamma$ decreases, the probability decays faster and faster, until the recruitment process is entirely local. A local recruitment mechanism does not display a bistable behavior, while a global -- as shown by our initial model -- does. 
+
+As expected from this reasoning, the lower values of $\gamma$ do not give rise to a bistable behavior in the system, while the higher do. 
+
+The cut-off value of $\gamma$ seem to be just below 2, as indicated by figure \textcolor{red}{FIGURE HERE}
+
+Here ew can see the system displaying clear bistability at $\gamma = 1.4$, and none at all at $\gamma= 2.2$. $\gamma= 1.8$ seems to be in the transitional region between the two, indicating that $\gamma$ just under two is the limit if we want our system to behave bistably. 
+
+
+
+
+
+
+\section{Task4}
+\subsection{Discussion}
+During cell division, there is a probability of 0.5 that the methylated nucleosome will end up in each of the new DNA strings. In the other DNA, this nucleosome will be replaced by an unmethylated nucleosome. 
+
+In this task, we simulate this cell division by changing each nucleosome to unmethylated with a probability of 0.5.
+
+The results are as expected, the
+
+As shown by figure \textcolor{red}{FIGURE HERE}, the system will tend to keep its methylation state throughout cell division, although there is a heightened chance of the noise conversion tipping the system over to the opposite methylation state. 
+
+
+in \textcolor{red}{ fig  } we can see that the number of metylated nucleosomes dip during cell division, but quickly recover as they are recruited from the unmethylated state by the methylated nucleosomes. However, as this is a stochastic process with a significant noise component, the probability of switching over to the other stable methylation state is significantly higher right after cell division. 
+
+This make sense since the absolute number of nucleosomes affected will be greater for the dominant state, bringing the system closer to the unstable fixed point where it is more likely to be tipped over by the random noise conversion. 
+ 
+
+
+
+
+
+
+
+
+
 
 \end{document}

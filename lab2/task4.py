@@ -82,6 +82,16 @@ def cell_division(nucleosome_chain):
     print("Cell division")
     for n in nucleosome_chain:
         n.methylation = n.methylation*(rand() < .5)
+def plot_methylated(nr_methylated, t, cell_division_index):
+    plt.figure()
+    x = np.arange(0,t+1)/60
+    plt.vlines(cell_division_index/60, 0,60,"r", label="Cell division")
+    plt.plot(x, nr_methylated[-1,:])
+    plt.fill_between(x, nr_methylated[-1,:])
+    plt.xlabel("Time [updates per nucleosome]")
+    plt.ylabel("Number of methylated nucleosomes [1]")
+    plt.legend(loc="best")
+    # plt.title(f"Methylated, gamma = {gamma}")
 
 
 
@@ -91,17 +101,19 @@ def cell_division(nucleosome_chain):
 L = 60 #nr of nucleosomes
 tmax = 10000
 cell_div_counter = 0
-filename = "data/task4_nr_methylated_v7.txt"
+filename = "data/dummy.txt"
 # filename = "data/dummy.txt"
 model2 = False
+write_to_file = False
 # gamma = -2
 gammalist = [-1] #np.linspace(-1,-3,6)
 cell_division_index = np.arange(int(L*tmax/11), int(L*tmax*(1-1/11)+1),int(L*tmax*(1-2/11)/10+1)) #10 evenly spaced cell divisions along t
 
 print(cell_division_index)
 
-with open(filename, "a+") as f:
-    np.savetxt(f,gammalist)
+if write_to_file:
+    with open(filename, "a+") as f:
+        np.savetxt(f,gammalist)
 for gamma in gammalist:
     for F in [6]:#[2, 4, 6]:
         # F = 4
@@ -129,20 +141,14 @@ for gamma in gammalist:
 
 
 
-        plt.figure()
-        plt.plot(nr_methylated[0,:])
-        plt.vlines(cell_division_index, 40,60,"r")
-        plt.title(f"Acethylated, gamma = {gamma}")
-        plt.figure()
-        plt.plot(nr_methylated[2,:])
-        plt.vlines(cell_division_index, 0,10,"r")
-        plt.title(f"Methylated, gamma = {gamma}")
+        plot_methylated(nr_methylated, t, cell_division_index)
 
         print("\n--- %s seconds ---" % (time.time() - start_time))
 
 
-        with open(filename, "a+") as f:
-            np.savetxt(f, nr_methylated)
+        if write_to_file:
+            with open(filename, "a+") as f:
+                np.savetxt(f, nr_methylated)
 
 
 # loaded = np.loadtxt(filename)
