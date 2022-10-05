@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 from numpy.random import rand
 import time
 
+plt.rcParams.update({'font.size':12})
+
+
 class Nucleosome():
     def __init__(self, methylation = 0):
         self.methylation = methylation
@@ -56,12 +59,15 @@ def update_nr_methylated(nr_methylated,t,inds, nucleosome_chain):
 def mk_hist(arr, boxwidth, label_string):
     # histstop = .4
     plt.figure()
-    histstop = max(arr)
-    # boxwidth = 1
+    histstop = 60
+    boxwidth = 1
     nrboxes = histstop/boxwidth
-    bins = np.linspace(0, histstop, int(nrboxes))
+    bins = np.linspace(-histstop, histstop, 2*int(nrboxes))
     # bins = [0, .02, .04,.06]
     plt.hist(arr, bins, label=label_string)
+    plt.xlabel("M-A")
+    plt.ylabel("Nr of nucleosomes in state")
+    # plt.legend(loc="best")
     # plt.show()
 
 def plot_methylated(nr_methylated, t):
@@ -76,11 +82,11 @@ def plot_methylated(nr_methylated, t):
 
 
 L = 60 #nr of nucleosomes
-tmax = 300000
+tmax = 10000
 filename = "data/task1_nr_methylated_v6_f6_t3e6.txt"
-write_to_file =True
+write_to_file =False
 
-for F in [6]:#[2, 4, 6]:
+for F in [2, 4, 6]:
     # F = 4
     alpha =  F/(1 + F)
     nr_methylated = np.zeros([3,L*tmax])
@@ -97,6 +103,7 @@ for F in [6]:#[2, 4, 6]:
         nr_methylated = update_nr_methylated(nr_methylated,t,inds, nucleosome_chain)
 
     plot_methylated(nr_methylated, t)
+    mk_hist(nr_methylated[-1,:]-nr_methylated[0,:],1,f"F={F}")
     print("\n--- %s seconds ---" % (time.time() - start_time))
 
     if write_to_file:

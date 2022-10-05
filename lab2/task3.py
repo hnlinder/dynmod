@@ -4,6 +4,7 @@ from numpy.random import rand
 import time
 import random
 
+plt.rcParams.update({'font.size':12})
 class Nucleosome():
     def __init__(self, methylation = 0):
         self.methylation = methylation
@@ -77,19 +78,43 @@ def get_index_of_n2(ind, gamma, L=60):
 
 
 
+def plot_methylated(nr_methylated, t, legend_str):
+    plt.figure()
+    x = np.arange(0,t+1)/60
+    plt.plot(x, nr_methylated[-1,:], label=legend_str)
+    plt.fill_between(x, nr_methylated[-1,:])
+    plt.xlabel("Time [updates per nucleosome]")
+    plt.ylabel("Number of methylated nucleosomes [1]")
+    plt.legend(loc="best")
+# def save_array_to_file
+def mk_hist(arr, boxwidth, label_string):
+    # histstop = .4
+    plt.figure()
+    histstop = 60
+    boxwidth = 1
+    nrboxes = histstop/boxwidth
+    bins = np.linspace(-histstop, histstop, 2*int(nrboxes))
+    # bins = [0, .02, .04,.06]
+    plt.hist(arr, bins, label=label_string)
+    plt.xlabel("M-A")
+    plt.ylabel("Nr of nucleosomes in state")
+    plt.legend(loc="best")
 
 
 # def save_array_to_file
 
 L = 60 #nr of nucleosomes
 tmax = 10000
-filename = "data/task3_nr_methylated_v1.txt"
+filename = "data/dummy.txt"
 model2 = False
 gamma = -2
 gammalist = np.linspace(-1,-3,6)
+write_to_file = False
 
-with open(filename, "a+") as f:
-    np.savetxt(f,gammalist)
+
+if  write_to_file:
+    with open(filename, "a+") as f:
+        np.savetxt(f,gammalist)
 for gamma in gammalist:
     for F in [6]:#[2, 4, 6]:
         # F = 4
@@ -113,18 +138,21 @@ for gamma in gammalist:
 
 
 
-        plt.figure()
-        plt.plot(nr_methylated[0,:])
-        plt.title(f"Acethylated, gamma = {gamma}")
-        plt.figure()
-        plt.plot(nr_methylated[2,:])
-        plt.title(f"Methylated, gamma = {gamma}")
+        # plt.figure()
+        # plt.plot(nr_methylated[0,:])
+        # plt.title(f"Acethylated, gamma = {gamma}")
+        # plt.figure()
+        # plt.plot(nr_methylated[2,:])
+        # plt.title(f"Methylated, gamma = {gamma}")
+        legend_str = fr"$\gamma = {gamma}$"
+        plot_methylated(nr_methylated, t, legend_str)
+        mk_hist(nr_methylated[-1,:]-nr_methylated[0,:],1,legend_str)
 
         print("\n--- %s seconds ---" % (time.time() - start_time))
 
-
-        with open(filename, "a+") as f:
-            np.savetxt(f, nr_methylated)
+        if write_to_file:
+            with open(filename, "a+") as f:
+                np.savetxt(f, nr_methylated)
 
 # loaded = np.loadtxt(filename)
 # plt.figure()

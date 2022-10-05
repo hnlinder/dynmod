@@ -4,6 +4,7 @@ from numpy.random import rand
 import time
 import random
 
+plt.rcParams.update({'font.size':12})
 class Nucleosome():
     def __init__(self, methylation = 0):
         self.methylation = methylation
@@ -65,43 +66,75 @@ def update_nr_methylated(nr_methylated,t,inds, nucleosome_chain):
                 nr_methylated[i+1, t] += 1
     return nr_methylated
 
+def plot_methylated(nr_methylated, t, legend_str):
+    plt.figure(1)
+    x = np.arange(0,t+1)/60
+    plt.plot(x, nr_methylated[-1,:], label=legend_str)
+    plt.fill_between(x, nr_methylated[-1,:])
+    plt.xlabel("Time [updates per nucleosome]")
+    plt.ylabel("Number of methylated nucleosomes [1]")
+    plt.legend(loc="best")
 # def save_array_to_file
+def mk_hist(arr, boxwidth, label_string):
+    # histstop = .4
+    plt.figure(10)
+    histstop = 60
+    boxwidth = 1
+    nrboxes = histstop/boxwidth
+    bins = np.linspace(-histstop, histstop, 2*int(nrboxes))
+    # bins = [0, .02, .04,.06]
+    plt.hist(arr, bins, label=label_string)
+    plt.xlabel("M-A")
+    plt.ylabel("Nr of nucleosomes in state")
+    plt.legend(loc="best")
+# def save_array_to_file
+    # plt.legend(loc="best")
+    # plt.show()
 
 L = 60 #nr of nucleosomes
-tmax = 100000
-filename = "data/task2_nr_methylated_v1.txt"
+tmax = 10000
+filename = "data/dummy.txt"
 model2 = True
+write_to_file = False
+for model2 in [False, True]:
+    for F in [10]:#[2, 4, 6]:
+        # F = 4
+        alpha =  F/(1 + F)
+        nr_methylated = np.zeros([3,L*tmax])
+        nucleosome_chain = init_nucleosome_chain(L)
 
-for F in [10]:#[2, 4, 6]:
-    # F = 4
-    alpha =  F/(1 + F)
-    nr_methylated = np.zeros([3,L*tmax])
-    nucleosome_chain = init_nucleosome_chain(L)
-
-    start_time = time.time()
-    # main loop
-    for t in range(L*tmax):
-        inds = get_random_index(3)
-        if not abs(nucleosome_chain[inds[0]].methylation): #only if this nucleosome is unmethylated, ie n==0
-            if (rand() < alpha):
-                recruited_conversion(inds, model2)
-        if (rand() < (1-alpha)):
-            nucleosome_chain[inds[2]].noisy_change()
-        nr_methylated = update_nr_methylated(nr_methylated,t,inds, nucleosome_chain)
-        # else:
-            # nr_methylated[:,t] = nr_methylated[:,t-1]
-
-
-    plt.figure()
-    plt.plot(nr_methylated[0,:])
-    plt.figure()
-    plt.plot(nr_methylated[2,:])
-
-    print("\n--- %s seconds ---" % (time.time() - start_time))
+        start_time = time.time()
+        # main loop
+        for t in range(L*tmax):
+            inds = get_random_index(3)
+            if not abs(nucleosome_chain[inds[0]].methylation): #only if this nucleosome is unmethylated, ie n==0
+                if (rand() < alpha):
+                    recruited_conversion(inds, model2)
+            if (rand() < (1-alpha)):
+                nucleosome_chain[inds[2]].noisy_change()
+            nr_methylated = update_nr_methylated(nr_methylated,t,inds, nucleosome_chain)
+            # else:
+                # nr_methylated[:,t] = nr_methylated[:,t-1]
 
 
-    with open(filename, "a+") as f:
-        np.savetxt(f, nr_methylated)
+        # plt.figure()
+        # plt.plot(nr_methylated[0,:])
+        # plt.figure()
+        # plt.plot(nr_methylated[2,:])
+        if model2:
+            legend_str = "Model 2"
+        else: 
+            legend_str = "Model 1"
+
+        plot_methylated(nr_methylated, t, legend_str)
+        mk_hist(nr_methylated[-1,:]-nr_methylated[0,:],1,legend_str)
+
+        print("\n--- %s seconds ---" % (time.time() - start_time))
+
+
+        if write_to_file:
+            with open(filename, "a+") as f:
+                np.savetxt(f, nr_methylated)
 
 # loaded = np.loadtxt(filename)
 # plt.figure()
@@ -110,6 +143,7 @@ for F in [10]:#[2, 4, 6]:
 # plt.plot(loaded[2,:])
 # print(nr_methylated ==loaded[-3:, :])
 
+plt.legend(loc="best")
 plt.show()
 
 

@@ -29,6 +29,9 @@ Steady state when both are zero:
 for a=m : 
 \href{https://www.wolframalpha.com/input?i=solve+0+%3D+alpha*%28a*%281-a-a%29+-+a*a%29+%2B+%281+-+alpha%29*%28%281-a-a%29%2F2+-+a%29+for+a+}{sloution}
 
+equal to eachother: 
+\href{https://www.wolframalpha.com/input?i=solve+alpha*%28m*%281-a-m%29+-+a*m%29+%2B+%281+-+alpha%29*%28%281-a-m%29%2F2+-+m%29++%3D+alpha*%28a*%281-a-m%29+-+a*m%29+%2B+%281+-+alpha%29*%28%281-a-m%29%2F2+-+a%29+for+a+}{here}
+
 
 
 
@@ -41,35 +44,107 @@ in task4\_nr\_methylated\_v2, and v3 i managed to get one to switch over
 
 
 \section{Task1}
+Epigenetics is the study of how one may obtain different expression sfrom the same gene sequences. One epigenetic mechanism is DNA-methylation, where methyl or acethyl groups are added to the histones that make up the DNA nucleosomes. These methyl groups change the expression of the genes and are therefore interesting to study.
 
+The methylation of a gene nucleosome sequence can change over time, and is affected both by random noise and by active conversion from nucleosomes nearby. The purpose of this lab is to study this change in methylation and determine the stability of the system, as well as finding out whether a methylated gene sequence can survive a cell division. 
+%The expression of genes is determined not only by the 
+
+
+A nucleosome can be in one of three methylation states: Methylated (M), Acethylated (A), or Unmethylated (U). 
+The equations governing the change of methylation are the following
 
 \begin{equation}
 	\dv {a}{t} = f = \alpha[a(1-a-m) - am] + (1-\alpha )\left(\frac{1-a-m}{2}  - a\right)
+	\label{eq:dadt}
 \end{equation}
 \begin{equation}
-	\dv {m}{t} = g = \alpha[m(1-a-m) - am] + (1-\alpha )\left(\frac{1-a-m}{2}  - m\right)
+	\dv {m}{t} = g = \alpha[m(1-a-m) - am] + (1-\alpha )\left(\frac{1-a-m}{2}  - m\right),
+	\label{eq:dmdt}
+\end{equation}
+where $a$ and $m$ are the fraction of nucleosomes in the A and M states, respectively. $\alpha$ is a parameter describing the probability of conversion.
+
+In this lab we will mostly work instead with the parameter 
+\begin{equation}
+	F = \frac{\alpha}{1-\alpha}
+	\label{eq:F}
+\end{equation}
+which defines the ratio of active to random conversions. 
+
+
+\begin{equation}
+	\alpha = \frac{F}{1 + F}
+	\label{eq:alpha_of_F}
+\end{equation}
+Solving eqs \eqref{eq:dadt} and \eqref{eq:dmdt} in steady state for $m=a$, we get 
+\begin{equation}
+	m = \frac{\sqrt{3\alpha^2 - 6\alpha + 4} + 3\alpha - 2}{6\alpha}.
+	\label{eq:m_of_alpha}
 \end{equation}
 
+
+Sneppen \cite{book} gives us that the stability of a fixed point is determined by the sign of the largest eigenvalue, given by the following equation
+\begin{equation}
+	\lambda = \frac{f_a + g_m}{2}  + \sqrt{\frac{\left(f_a + g_m\right)^2}{4} - f_ag_m + f_mg_a},
+	\label{eq:eigen}
+\end{equation}
+where
+\begin{equation}
+	f_a = \dv{f}{a},\quad
+	g_a = \dv{g}{a},\quad
+	f_m = \dv{f}{m},\quad
+	g_m = \dv{g}{m}.
+\end{equation}
+
+These derivatives were all found using the symbolic solver Wolfram Alpha \cite{wolfram}. 
+
+Now we can substitute these derivatives and eqs \eqref{eq:alpha_of_F} and \eqref{eq:m_of_alpha} into eq \eqref{eq:eigen} to get the eigenvalue as a function of $F$. Now we plug $\lambda = 0$ into wolfram alpha \cite{wolfram} and solve for $F$ to get the $F$ at which the eigenvalue switches sign. This yields that the critical point at which the system goes from stable to bistable is at
+\begin{equation}
+	F_c = \frac{1}{\sqrt{2} - 1}.
+\end{equation}
 
 
 \subsection{Discussion}
-%\begin{figure}[H]
-	%\centering
-	%\begin{subfigure}[b]{.4\textwidth}
-		%\centering
-		%\includegraphics[width= \linewidth]{figs/task1_F=4_v0.eps}
-		%\caption{F = 2}
-		%\label{fig:task1F=2}
-	%\end{subfigure}
-	%\begin{subfigure}[b]{.4\textwidth}
-		%\centering
-		%\includegraphics[width= \linewidth]{figs/task1_F=4_v0.eps}
-		%\caption{F = 2}
-		%\label{fig:task1 F=4}
-	%\end{subfigure}
-		%\caption{F = 2}
-		%\label{fig:task1}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task1_F2_v4.eps}
+		\caption{F = 2}
+		\label{fig:task1_F2}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task1_F4_v4.eps}
+		\caption{F = 4}
+		\label{fig:task1_F4}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task1_F6_v4.eps}
+		\caption{F = 6}
+		\label{fig:task1_F6}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task1_F2_hist_v4.eps}
+		\caption{F = 2}
+		\label{fig:task1_F2_hist}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task1_F4_hist_v4.eps}
+		\caption{F = 4}
+		\label{fig:task1_F4_hist}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task1_F6_hist_v4.eps}
+		\caption{F = 6}
+		\label{fig:task1_F6_hist}
+	\end{subfigure}
+		\caption{Number of nucleosomes in the M state versus time for different values of F. }
+		\label{fig:task1}
+\end{figure}
 $F$ increasing means that the ratio of active recruitment to random conversion between M and A states increases. This means that at high values of F, it is much more likely that a nucleosome is changed by conversion from another nucleosome than by random noise. As random chance has less and less effect, the bistability becomes more pronounced. In the limit, as F approaches infinity, the noise will become negligible and the system will tend to end up in a state of only A or M, and stay that way indefinitely. 
 
 In the other limit, as F approaches 0, the noise dominates and the effect of recruitment becomes negligible. The evolution of the system then becomes a random walk. 
@@ -77,17 +152,19 @@ In the other limit, as F approaches 0, the noise dominates and the effect of rec
 
 
 \section{Task 2}
+We will call the model in the previous task \textit{Model 0}. In order to study the effects of non-linerarity on the bistability of the system, we remove one of the active recruitment steps from the model to obtain the equations below which we call 
 \textit{Model 1}
 \begin{equation}
 	\dv {a}{t} = f = \alpha[a(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - a\right)
 \end{equation}
 \begin{equation}
-	\dv {m}{t} = g = \alpha[m(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - m\right)
+	\dv {m}{t} = g = \alpha[m(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - m\right).
 \end{equation}
+Here, we only require interaction with a single nucleosome for active recruitment, going from the U state. Going from an A or M state to a U state can only be done through noisy conversion. 
 
 
 
-\textit{Model 2}
+For \textit{Model 2} below, we add back the non-linearity by requiring two random nucleosomes with the same methylation be chosen in order to convert a nucleosome from a U state.
 \begin{equation}
 	\dv {a}{t} = f = \alpha[a^2(1-a-m)] + (1-\alpha )\left(\frac{1-a-m}{2}  - a\right)
 \end{equation}
@@ -97,44 +174,100 @@ In the other limit, as F approaches 0, the noise dominates and the effect of rec
 
 
 \subsection{Discussion}
-%\begin{figure}[H]
-	%\centering
-	%\begin{subfigure}[b]{.4\textwidth}
-		%\centering
-		%\includegraphics[width= \linewidth]{figs/task2_v0-eps-converted-to.pdf}
-		%\caption{F = 2}
-		%\label{fig:task2_F2}
-	%\end{subfigure}
-	%\begin{subfigure}[b]{.4\textwidth}
-		%\centering
-		%\includegraphics[width= \linewidth]{figs/task2_v1}
-		%\caption{F = 2}
-		%\label{fig:task2_F4}
-	%\end{subfigure}
-		%\caption{F = 2}
-		%\label{fig:task2}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task2_m_vs_t_v1.eps}
+		\caption{Nr of methylated nucleosomes versus time.\\ }
+		\label{fig:task2_m_vs_t}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task2_hist_v1.eps}
+		\caption{Histogram showing the distribution of methylation states over the simulation.}
+		\label{fig:task2_hist}
+	\end{subfigure}
+		\caption{The results of simulations in task 2 with both model 1 and model 2, having linear and non-linear dependencies on $m$, respecitec}
+		\label{fig:task2}
+\end{figure}
 
-In order for bistability to occur, we need a non-linear feedback loop. This is achieved in the previous model by requiring two separate nucleosomes for a full conversion to occur. However, in this model, we only need one, meaning that the conversion only depends linearly on the concentration of A or M. This shows in the fact that the results in this task display no (or at least very little) bistable behavior, despite working at an $F$ that would have been distinctly bistable in the previous model. 
+In order for bistability to occur, we need a non-linear feedback loop. This is achieved in \textit{model 0} by requiring two separate nucleosomes for a full conversion to occur. However, in \textit{model 1}, we only require one, meaning that the conversion only depends linearly on the concentration of A or M. This shows in the fact that the results in this task display no (or at least very little) bistable behavior, despite working at an $F$ that would have been distinctly bistable in the previous model. 
 
 We can add back the non-linearity into the model by requiring two random nucleosomes of the same methylation be picked in order to convert an unmethylated nucleosome into an A or M state. Now the active recruitment once again depend on the square of the concentration of M, so we get the bistable behavior similar to that of the first model. 
 
+The difference is clearly shown in fig. \eqref{fig:task2} where we can see clear bistable behavior in model 2, while model 1 appears to be doing a random walk. 
 
 
 \section{Task3}
+In the previous models, we have assumed that every nucleosome has an equal chance of converting every other nucleosome, regardless of their respective placement on the chain of nucleosomes. 
+
+It stands to reason that the distance between nucleosomes may affect the probability of them interacting, so we will incorporate a dependency on distance in the recruitment probability. The new probability of interaction between two nucleosomes will decay like 
+%This may not 
 \begin{equation}
 	P(d) \propto d^\gamma
 \end{equation}
+where $d$ is the distance between two nucleosomes, and $\gamma <0$ is some parameter. 
 \subsection{Discussion}
 We use $\gamma\in [-1,-3]$. 
 
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task3_2_2_v0.eps}
+		\caption{Nr of methylated nucleosomes versus time.\\ }
+		\label{fig:task2_m_vs_t}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task3_hist_2_2_v0.eps}
+		\caption{Histogram showing the distribution of methylation states over the simulation.}
+		\label{fig:task2_hist}
+	\end{subfigure}
+		\caption{The results of simulations in task 2 with both model 1 and model 2, having linear and non-linear dependencies on $m$, respecitec}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task3_1_8_v0.eps}
+		\caption{Nr of methylated nucleosomes versus time.\\ }
+		\label{fig:task2_m_vs_t}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task3_hist_1_8_v0.eps}
+		\caption{Histogram showing the distribution of methylation states over the simulation.}
+		\label{fig:task2_hist}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task3_1_4_v0.eps}
+		\caption{Nr of methylated nucleosomes versus time.\\ }
+		\label{fig:task2_m_vs_t}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task3_hist_1_4_v0.eps}
+		\caption{Histogram showing the distribution of methylation states over the simulation.}
+		\label{fig:task2_hist}
+	\end{subfigure}
+		\caption{The results of simulations in task 2 with both model 1 and model 2, having linear and non-linear dependencies on $m$, respecitec}
+		\label{fig:task2}
+\end{figure}
+
 $\gamma$ is a constant determining the rate at which the recruitment probability decays with the distance along the nucleosome chain. As $\gamma$ decreases, the probability decays faster and faster, until the recruitment process is entirely local. A local recruitment mechanism does not display a bistable behavior, while a global -- as shown by our initial model -- does. 
+
+In our initial model, there was no distance dependency, recruitment was equally likely from every other nucleosome in the chain. This model is therefore entirely global. 
+This is the baseline to which we can compare the behavior of the new model. 
+As $\gamma\to 0$, the probability vector becomes uniform (does not decay with distance), and the result is the same as in \textit{model 0}.
 
 As expected from this reasoning, the lower values of $\gamma$ do not give rise to a bistable behavior in the system, while the higher do. 
 
 The cut-off value of $\gamma$ seem to be just below 2, as indicated by figure \textcolor{red}{FIGURE HERE}
 
-Here ew can see the system displaying clear bistability at $\gamma = 1.4$, and none at all at $\gamma= 2.2$. $\gamma= 1.8$ seems to be in the transitional region between the two, indicating that $\gamma$ just under two is the limit if we want our system to behave bistably. 
+Here we can see the system displaying clear bistability at $\gamma = 1.4$, and none at all at $\gamma= 2.2$. $\gamma= 1.8$ seems to be in the transitional region between the two, indicating that $\gamma$ just under two is the limit if we want our system to behave bistably. 
+
+
 
 
 
@@ -142,12 +275,30 @@ Here ew can see the system displaying clear bistability at $\gamma = 1.4$, and n
 
 
 \section{Task4}
-\subsection{Discussion}
 During cell division, there is a probability of 0.5 that the methylated nucleosome will end up in each of the new DNA strings. In the other DNA, this nucleosome will be replaced by an unmethylated nucleosome. 
-
 In this task, we simulate this cell division by changing each nucleosome to unmethylated with a probability of 0.5.
+\subsection{Discussion}
 
-The results are as expected, the
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task4_m_vs_t_v0.eps}
+		\caption{Nr of methylated nucleosomes versus time.\\ }
+		\label{fig:task2_m_vs_t}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{figs2/task4_hist_v0.eps}
+		\caption{Histogram showing the distribution of methylation states over the simulation.}
+		\label{fig:task2_hist}
+	\end{subfigure}
+		\caption{The results of simulations in task 2 with both model 1 and model 2, having linear and non-linear dependencies on $m$, respecitec}
+		\label{fig:task2}
+\end{figure}
+
+
+%The 
 
 As shown by figure \textcolor{red}{FIGURE HERE}, the system will tend to keep its methylation state throughout cell division, although there is a heightened chance of the noise conversion tipping the system over to the opposite methylation state. 
 
@@ -160,6 +311,12 @@ This make sense since the absolute number of nucleosomes affected will be greate
 
 
 
+\begin{thebibliography}{3}
+\bibitem{book}
+Sneppen, K. \textit{Models of life -- Dynamics and regulation in biological systems.} (Cambridge University Press, 2014)
+\bibitem{wolfram}
+\href{Wolframalpha.com}{Wolframalpha.com}
+\end{thebibliography}
 
 
 

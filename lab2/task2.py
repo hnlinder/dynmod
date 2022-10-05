@@ -4,6 +4,7 @@ from numpy.random import rand
 import time
 import random
 
+plt.rcParams.update({'font.size':12})
 class Nucleosome():
     def __init__(self, methylation = 0):
         self.methylation = methylation
@@ -59,6 +60,7 @@ def update_nr_methylated(nr_methylated,t,inds, nucleosome_chain):
 L = 60 #nr of nucleosomes
 tmax = 10000
 filename = "data/dummy.txt"
+write_to_file = False
 
 for F in [10]:#[2, 4, 6]:
     # F = 4
@@ -87,9 +89,9 @@ for F in [10]:#[2, 4, 6]:
 
     print("\n--- %s seconds ---" % (time.time() - start_time))
 
-
-    with open(filename, "a+") as f:
-        np.savetxt(f, nr_methylated)
+    if write_to_file:
+        with open(filename, "a+") as f:
+            np.savetxt(f, nr_methylated)
 
 # loaded = np.loadtxt(filename)
 # plt.figure()

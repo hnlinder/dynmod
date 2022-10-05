@@ -4,6 +4,7 @@ from numpy.random import rand
 import time
 import random
 
+plt.rcParams.update({'font.size':12})
 class Nucleosome():
     def __init__(self, methylation = 0):
         self.methylation = methylation
@@ -94,6 +95,18 @@ def plot_methylated(nr_methylated, t, cell_division_index):
     # plt.title(f"Methylated, gamma = {gamma}")
 
 
+def mk_hist(arr, boxwidth, label_string):
+    # histstop = .4
+    plt.figure(10)
+    histstop = 60
+    boxwidth = 1
+    nrboxes = histstop/boxwidth
+    bins = np.linspace(-histstop, histstop, 2*int(nrboxes))
+    # bins = [0, .02, .04,.06]
+    plt.hist(arr, bins, label=label_string)
+    plt.xlabel("M-A")
+    plt.ylabel("Nr of nucleosomes in state")
+    # plt.legend(loc="best")
 
 
 # def save_array_to_file
@@ -109,6 +122,7 @@ write_to_file = False
 gammalist = [-1] #np.linspace(-1,-3,6)
 cell_division_index = np.arange(int(L*tmax/11), int(L*tmax*(1-1/11)+1),int(L*tmax*(1-2/11)/10+1)) #10 evenly spaced cell divisions along t
 
+legend_str="hej"
 print(cell_division_index)
 
 if write_to_file:
@@ -142,6 +156,7 @@ for gamma in gammalist:
 
 
         plot_methylated(nr_methylated, t, cell_division_index)
+        mk_hist(nr_methylated[-1,:]-nr_methylated[0,:],1,legend_str)
 
         print("\n--- %s seconds ---" % (time.time() - start_time))
 
