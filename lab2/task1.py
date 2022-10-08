@@ -82,11 +82,11 @@ def plot_methylated(nr_methylated, t):
 
 
 L = 60 #nr of nucleosomes
-tmax = 10000
+tmax = 300000#10000
 filename = "data/task1_nr_methylated_v6_f6_t3e6.txt"
 write_to_file =False
 
-for F in [2, 4, 6]:
+for F in [6]:#[2, 4, 6]:
     # F = 4
     alpha =  F/(1 + F)
     nr_methylated = np.zeros([3,L*tmax])

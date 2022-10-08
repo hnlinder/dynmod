@@ -180,7 +180,7 @@ For \textit{Model 2} below, we add back the non-linearity by requiring two rando
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task2_m_vs_t_v1.eps}
-		\caption{Nr of methylated nucleosomes versus time.\\ }
+		\caption{Nr of methylated nucleosomes versus time. }
 		\label{fig:task2_m_vs_t}
 	\end{subfigure}
 	\begin{subfigure}[b]{.49\textwidth}
@@ -218,42 +218,41 @@ We use $\gamma\in [-1,-3]$.
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task3_2_2_v0.eps}
-		\caption{Nr of methylated nucleosomes versus time.\\ }
-		\label{fig:task2_m_vs_t}
+		\caption{Nr of methylated nucleosomes versus time for $\gamma=2.2$ }
+		\label{fig:task3_m_vs_t_2_2}
 	\end{subfigure}
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task3_hist_2_2_v0.eps}
-		\caption{Histogram showing the distribution of methylation states over the simulation.}
-		\label{fig:task2_hist}
+		\caption{Histogram showing the distribution of methylation states over the simulation for $\gamma=2.2$.}
+		\label{fig:task3_hist_2_2}
 	\end{subfigure}
-		\caption{The results of simulations in task 2 with both model 1 and model 2, having linear and non-linear dependencies on $m$, respecitec}
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task3_1_8_v0.eps}
-		\caption{Nr of methylated nucleosomes versus time.\\ }
-		\label{fig:task2_m_vs_t}
+		\caption{Nr of methylated nucleosomes versus time for $\gamma=1.8$.}
+		\label{fig:task3_m_vs_t_1_8}
 	\end{subfigure}
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task3_hist_1_8_v0.eps}
-		\caption{Histogram showing the distribution of methylation states over the simulation.}
-		\label{fig:task2_hist}
+		\caption{Histogram showing the distribution of methylation states over the simulation for $\gamma=1.8$.}
+		\label{fig:task3_hist_1_8}
 	\end{subfigure}
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task3_1_4_v0.eps}
-		\caption{Nr of methylated nucleosomes versus time.\\ }
-		\label{fig:task2_m_vs_t}
+		\caption{Nr of methylated nucleosomes versus time for $\gamma=1.4$.}
+		\label{fig:task3_m_vs_t_1_4}
 	\end{subfigure}
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task3_hist_1_4_v0.eps}
-		\caption{Histogram showing the distribution of methylation states over the simulation.}
-		\label{fig:task2_hist}
+		\caption{Histogram showing the distribution of methylation states over the simulation for $\gamma=1.4$.}
+		\label{fig:task3_hist_1_4}
 	\end{subfigure}
-		\caption{The results of simulations in task 2 with both model 1 and model 2, having linear and non-linear dependencies on $m$, respecitec}
-		\label{fig:task2}
+		\caption{The result for simulations, showing the methylation for different values of $\gamma$. On the left is how the number of methylated histones change over time in each simulation, and on the right are histograms showing the distribution of methylation states over the entire run time of the simulation. From the top down, this is shown for the values of $\gamma = {-2.2, -1.8, -1.4}$.}
+		\label{fig:task3}
 \end{figure}
 
 $\gamma$ is a constant determining the rate at which the recruitment probability decays with the distance along the nucleosome chain. As $\gamma$ decreases, the probability decays faster and faster, until the recruitment process is entirely local. A local recruitment mechanism does not display a bistable behavior, while a global -- as shown by our initial model -- does. 
@@ -285,17 +284,17 @@ In this task, we simulate this cell division by changing each nucleosome to unme
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task4_m_vs_t_v0.eps}
-		\caption{Nr of methylated nucleosomes versus time.\\ }
-		\label{fig:task2_m_vs_t}
+		\caption{Nr of methylated nucleosomes versus time. The time of cell divisions is marked with red lines. }
+		\label{fig:task4_m_vs_t}
 	\end{subfigure}
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width= \linewidth]{figs2/task4_hist_v0.eps}
 		\caption{Histogram showing the distribution of methylation states over the simulation.}
-		\label{fig:task2_hist}
+		\label{fig:task4_hist}
 	\end{subfigure}
-		\caption{The results of simulations in task 2 with both model 1 and model 2, having linear and non-linear dependencies on $m$, respecitec}
-		\label{fig:task2}
+		\caption{The results of simulations in task 4 with ten cell divisions occuring ten times during the run of the simulation. }
+		\label{fig:task4}
 \end{figure}
 
 
