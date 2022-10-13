@@ -1,0 +1,296 @@
+%This template (2020-03-06) is a modified version by Magnus Andersson and Jesper Erixon of the Stylish Article LaTeX Template Version 2.1 (1/10/15)
+% Original author:
+% Mathias Legrand (legrand.mathias@gmail.com) 
+%
+% License:
+% CC BY-NC-SA 3.0
+
+%----------------------------
+\documentclass[fleqn,10pt]{SelfArx} % Document font size and equations flushed left
+\usepackage[english]{babel} % Specify a different language here - English by default
+\usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
+\usepackage{float} % Allow you to set the figure at a specific position, use mainly H 
+% Additional packages
+\usepackage{subcaption} % Allow you to create subfigures with individual captions
+%----------------------------
+%	COLUMNS
+%----------------------------
+\setlength{\columnsep}{0.55cm} % Distance between the two columns of text
+\setlength{\fboxrule}{0.75pt} % Width of the border around the abstract
+%----------------------------
+%	COLORS
+%----------------------------
+\definecolor{color1}{RGB}{0,0,90} % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+%----------------------------
+%	HYPERLINKS
+%----------------------------
+\usepackage{hyperref} % Required for hyperlinks
+\hypersetup{hidelinks,colorlinks,breaklinks=true,urlcolor=color2,citecolor=color1,linkcolor=color1,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
+\urlstyle{same} % Sets url font
+\usepackage{cleveref} % Added: Use cleveref to be able to reference subfigures e.g. Fig 1(a) etc.
+\captionsetup[subfigure]{subrefformat=simple,labelformat=simple} % Added: Setup subfigure label
+\renewcommand\thesubfigure{(\alph{subfigure})}
+%----------------------------
+%	ARTICLE INFORMATION
+%----------------------------
+\JournalInfo{Department of Physics, Umeå University}
+\Archive{\today}
+
+\PaperTitle{Report title} % Article title
+
+\Authors{Henrik Linder\textsuperscript{1}*} % Authors
+\affiliation{\textsuperscript{1}\textit{Department of Physics, Umeå University, Umeå, Sweden}} % Author affiliation
+\affiliation{*\textbf{Corresponding author}: heli0152@student.umu.se} % Corresponding author
+\affiliation{*\textbf{Supervisor}: joe@doe.com}
+\Keywords{Optics --- Interference --- Diffraction} % Keywords - if you don't want any simply remove all the text between the curly brackets
+\newcommand{\keywordname}{Keywords} % Defines the keywords heading name
+%----------------------------
+%	ABSTRACT
+%----------------------------
+\Abstract{
+The thin lens equation can predict how lenses in an optical system refract light. In this exercise, we investigated how well our theoretical predictions coincided with our experimental findings. \textcolor{red}{\textit{What was done?}} Using the thin lens equation, we first derived the distance to the image plane for an object positioned in front of a convex and concave lens and thereafter experimentally measured the distances. \textcolor{red}{\textit{How was it done?}} We found that the experiments agreed with the theoretical predictions, with a discrepancy of only 1.0 $\pm$ 0.2 mm. \textcolor{red}{\textit{What was found?}} We then built and verified the performance of both a Kepler and a Galilean telescope. We found that theory and experiment coincided with a discrepancy of 3.0 $\pm$ 0.3 mm. However, we observed a significant amount of aberrations, which we suggest is related to the spherical shaped lenses used in the setup. The findings in this exercise suggest that the thin lens equation can accurately predict how lenses should be positioned for imaging purposes, but that it does not take into account the degree of aberrations.\textcolor{red}{\textit{{What is the significance of the findings?.}}}
+}
+
+%----------------------------
+\begin{document}
+
+\flushbottom % Makes all text pages the same height
+
+\maketitle % Print the title and abstract box
+
+\tableofcontents % Print the contents section
+
+\thispagestyle{empty} % Removes page numbering from the first page
+
+%----------------------------
+%	ARTICLE CONTENTS
+%----------------------------
+
+%----------------------------
+\section{Introduction}
+The thin lens equation provides the quantitative relationship between the object distance, the focal length, and the image distance. We investigated how well this equation could predict the refraction of light in optical lenses. \textcolor{red}{\textit{{Identifies the scientific concept which forms the learning context for the lab}}} The thin lens equation, which is also denoted the Gaussian lens formula, was derived by Edmund Halley in 1693 under the assumption that the thickness of the lens is ignored and that the paraxial assumption is used \cite{Steinhaus:Mathematical}. This simplifies ray tracing calculations but give rise to errors if the rays are focused by the outer part of a lens \cite{Greivenkamp:FieldGuide}. \textcolor{red}{\textit{Background of the scientific concept}} Therefore, we expected to have some discrepancy between the theoretical and experimental values under certain conditions.
+
+Our main objective was to theoretically calculate the relation between the position of the object and image plane for lenses and a train of lenses and after that verify the calculations using a set of real lenses. We also compared the predictions from the calculations to manually drawn ray-tracing diagrams using pen and paper. \textcolor{red}{\textit{Paragraph that identifies the objectives in the lab}}
+
+\section{Methods}
+\subsection{Theory}
+\noindent
+The thin lens equation can be derived from the thick lens equation \cite{Pedrotti:Introduction}. By denoting $s$ and $s'$ as the object and image distances, respectively, and $s_{i1}$ as the image distance due to refraction in the first surface a relation can be expressed as, 
+\begin{equation}
+\label{eq:LensRelation}
+\frac{n_{m}}{s}+\frac{n_{m}}{s'}=(n_{1}-n_{m})\bigg(\frac{1}{R_{1}}-\frac{1}{R_{2}}\bigg)+\frac{n_{1}d}{(s_{i1}-d)s'},
+\end{equation}
+where $n_{m}$ and $n_{1}$ are the refraction index for the glass and air, respectively, $R_{1}$ and $R_{2}$ are radii of curvature of the surfaces, and $d$ is the thickness of the lens. If the lens thickness is $d\ll s_{i1}$, Eq. (\ref{eq:LensRelation}) can be rewritten and simplified 
+as,
+\begin{equation}
+\label{eq:LensMakers}
+\frac{1}{s}+\frac{1}{s'}=\bigg(\frac{n_{1}}{n_{m}}-1\bigg)\bigg(\frac{1}{R_{1}}-\frac{1}{R_{2}}\bigg),
+\end{equation}
+which is known as the lens maker's equation or thin lens equation. For a thin lens, the focal length of the object, $f_{0}$, equals the focal length of the image $f_{i}$, therefore, we can define,
+
+\begin{equation}
+\label{eq:FocalLength}
+\frac{1}{f_{0}}=\frac{1}{f_{i}}=\frac{1}{f}.
+\end{equation}
+The definition in Eq. (\ref{eq:FocalLength}) together with Eq. (\ref{eq:LensMakers}), yields the fundamental and practical thin lens equation,
+
+\begin{equation}
+\label{eq:ThinLens}
+\frac{1}{f}=\bigg(\frac{n_{1}}{n_{m}}-1\bigg)\bigg(\frac{1}{R_{1}}-\frac{1}{R_{2}}\bigg)=\frac{1}{s_{s}}+\frac{1}{s'}.
+\end{equation}
+
+\subsection{Experimental procedure}
+\noindent
+We used a small light emitting diode as an object and imaged it on a white 10x5 cm$^2$ screen using different lenses. All lenses were made of glass and either biconvex or biconcave with a diameter of 7.0 cm. We mounted all components, the diode, lenses, and the screen in sliding holders, which could be moved and locked on a metal rail for accurate positioning. An illustration of the setup is shown in Figure \ref{fig:Setup}.
+
+To measure the positions of our objects we used a stainless steel ruler and assumed a $\pm$ 1.0 mm accuracy in each measurement. We used this assumed accuracy to calculated the error by the Gauss error propagation formula \cite{Davis:ChemWiki}. \textcolor{red}{\textit{A description of the method used for statistical analysis, and a reference to what you have used}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Figure1.png}
+    \caption{Schematic of the setup used to mount the optical components (light emitting diode, lens, and screen) and measure how light was refracted by the lenses. A 5 mm light emitting diode was used as an object and the the white screen was moved until a sharp image was seen. The distances were measured using a regular steel ruler.}
+    \label{fig:Setup}
+\end{figure}
+
+%------------------------------------------------
+\section{Results}
+\noindent
+\subsection{Verification of the thin lens equation}
+Our experimental findings are in good agreement with theoretical calculations. \textcolor{red}{\textit{One can start with a sentence that highlights the findings for each result and support this with facts}} We first verified the thin lens equation of a concave and convex lens of 15.0 cm and -15.0 cm focal length, respectively. For an object distance of 25.0 cm we derived an image distance of 37.5 cm and 9.4 cm. The experimentally measured image distances, the distance from the lens to the screen, were 37.1 $\pm$ 0.2 cm and 9.1 $\pm$ 0.2 cm, respectively.
+
+Next, we calculated how to position two positive lenses of 5.0 cm and 25.0 cm focal length in order to image distant objects, i.e., more than 50 m away. This type of setup resembles a Kepler telescope. We found that the telescope provided almost five time magnification when looking at distant objects but that the image was significantly distorted. We therefore carefully realigned the lenses such that the optical axis of the two lenses were at the same height. This rearrangement signficantly reduced the amount of aberrations in the optical system. \textcolor{red}{\textit{Try to write the text so it tells a story and try to connect sentences}}
+
+\subsection{Chromatic aberrations}
+Chromatic aberrations are a result of the dispersion relation, which is connected to the variation of the index of refraction of a medium with wavelength. We investigated this relation by imaging three diodes, a red, a green, and blue, positioned at a fixed object distance from a single lens. We measured the image distance, {s'}, to 18.0 cm, 16.7 cm, and 15.5 cm for the red, green, and blue diode, respectively. Our observations are thus inline with the expected prediction.  \textcolor{red}{\textit{Notice how this paragraph introduces the character - Chromatic abberation, as compared with the first paragraph in 3.1 that starts with the outcome of the results. Just different styles of writing.}} The following text is not related to anything of science, but is just placed here to fill the page. Figure \ref{fig:View} is  just a dummy figure and is placed there to show how a figure can be neatly positioned across two columns.
+
+\lipsum[12] % Dummy text
+
+\lipsum[15] % Dummy text
+
+\begin{figure*}[ht]\centering % Using \begin{figure*} makes the figure take up the entire width of the page
+\includegraphics[width=\linewidth]{Figure2}
+\caption{Example of a double column figure with three subplots. Make sure that you clearly describe each panel and that the resolution of you figure is at least 300 dpi.}
+\label{fig:View}
+\end{figure*}
+
+\section{Discussion and Conclusion}
+\noindent
+The thin lens equation is an approximate equation that can predict the distance from a lens to an image, given the distance from an object. Using this equation, we investigated and compared the accuracy between theoretical prediction with experimental data. \textcolor{red}{\textit{One to three sentences to introduce what was done}} 
+
+The theoretical and experimental results for the concave and convex lenses agreed well, however, the theoretical values were slightly overestimated. We suggest that this overestimation is due to the rather large-sized lenses used in the exercise. Rays refracted by a large-sized low-quality lens will produce an elongated focus along the optical axis since these rays are focused closer to the lens than those refracted by the central part of the lens. Thus, it was difficult to find the exact focal position when positioning the screen, and the measured distance  therefore included errors. \textcolor{red}{\textit{Analyzing results 1}}
+
+For the telescopes we experienced that the alignment procedure was very important. In the first setup, we positioned the lenses according to the distances calculated with the thin lens equation. Thus, when viewing distant objects, the images were significantly distorted. We corrected this, however, by carefully centering their optical axis when realigning, and managed to get a decent agreement between theory and experiment. \textcolor{red}{\textit{Analyzing results 2}}
+
+Since we used a regular steel ruler with mm resolution to measure and estimate the distances, we introduced measurement errors. To minimize these errors all members in the group made individual measurements each time and we used the average values. \textcolor{red}{\textit{What errors did you have?}} 
+
+Since the thin lens equation is derived under the assumption that the lens has no thickness, and we used thick lenses in the exercise, we initially assumed that this would give a slight overestimated distance, Eq. (\ref{eq:LensRelation}) and (\ref{eq:ThinLens}). Indeed, all experimentally measured values agreed with this hypothesis. Despite this, we are satisfied with the outcome of the exercise since it still proved that the simple thin lens equation, with good accuracy can predict the image position, given the lens focal length and the distance from the object to the lens. \textcolor{red}{\textit{Prediction based upon analyzing the theory}}
+
+In conclusion, we verified the validity of the thin lens equation using different optical systems, and found that our experimentally measured distances coincided well with the theoretical predictions. \textcolor{red}{\textit{Concluding the findings in the laboratory exercise}}
+
+
+%----------------------------
+%	REFERENCE LIST
+%----------------------------
+\bibliographystyle{model1-num-names}
+\begin{thebibliography}{4}
+\bibitem{Steinhaus:Mathematical}
+    Steinhaus, H.,
+    Mathematical Snapshots,
+    3rd Edition. New York: Dover, pp. 93-94,
+    (1999)
+
+\bibitem{Greivenkamp:FieldGuide}
+    Greivenkamp,
+    J. E., Field Guide to Geometrical Optics,
+    SPIE Press,
+    Bellingham, WA,
+    (2004)
+
+\bibitem{Pedrotti:Introduction}
+    Pedrotti, F.L. and Pedrotti, L.S.,
+    Introduction to Optics,
+    3rd Edition,
+    Addison-Wesley,
+    (2006)
+
+\bibitem{Davis:ChemWiki}
+    UC Davis ChemWiki,
+    Propagation of Error,
+    Available at: \url{https://chem.libretexts.org/Textbook_Maps/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Quantifying_Nature/Significant_Digits/Propagation_of_Error},
+    (Accessed: 10th March 2016).
+\end{thebibliography}
+
+
+%-----------------------------------------------
+\phantomsection %Remove this section when you save your PDF
+\section*{Appendix} % The \section*{} command stops section numbering
+% Code to set figure and table labels to be A1, A2 etc. if placed in appendix:
+\setcounter{figure}{0}\renewcommand\thefigure{A\arabic{figure}}\renewcommand\thetable{A\arabic{table}}  
+
+\noindent
+This sample report can hopefully be of help when you write \textit{your} report. Remember that writing is a craft and requires a lot of practice. Use the information handed out during preivous classes to get detailed advice of each section of a report. If you are interested in improving your writing skills, we recommend you to read the book by Joshua Schimel -\textit{ Writing Science: How to Write Papers That Get Cited and Proposals That Get Funded.} 2011. Oxford University Press.
+
+To generate a Reference for a website or article there are several generators that you can use. For example: \\
+\url{www.harvardgenerator.com/} or \\
+\url{www.qub.ac.uk/cite2write/harvard3l.html}
+\subsection*{\underline{P}roblems and \underline{S}olutions With \LaTeX\:writing}
+% Tillagt / J
+\begin{enumerate}[nolistsep]
+    \item[\textbf{P:}] \textit{My figure is going over the column width}
+    \item[\textbf{S:}] Make sure to set a correct \texttt{width} when using \\
+    \texttt{\textbackslash includegraphics} inside a figure-environment, e.g. \texttt{\textbackslash includegraphics[width = \textbackslash linewidth]}\\ 
+    (you can also use \texttt{\textbackslash columnwidth}). You can also try to set a smaller width, for example by using \\ \texttt{0.8\textbackslash linewidth}. If you have a \texttt{figure*}, which should span both columns, use \texttt{\textbackslash textwidth}. \\
+    
+    
+    \item[\textbf{P:}] \textit{My equation is going over the column width}
+    \item[\textbf{S:}] If you want to list a long equation, like this
+    \begin{equation}
+        e^x =1+x+\frac{x^{2}}{2 !}+\frac{x^{3}}{3 !}+\frac{x^{4}}{4 !}+\frac{x^{5}}{5 !}+\frac{x^{6}}{6 !}+\frac{x^{7}}{7 !}+\frac{x^{8}}{8 !}+\frac{x^{9}}{9 !}+\frac{x^{10}}{10 !}+\frac{x^{11}}{11 !}+\cdots,
+    \end{equation}   
+    you should use the \texttt{align} environment. Simply place \texttt{\&} next to the symbols you wish to align and use \texttt{\textbackslash\textbackslash} to start a new equation line. In this example, then
+    \begin{align}
+        e^x = &1+x+\frac{x^{2}}{2 !}+\frac{x^{3}}{3 !}+\frac{x^{4}}{4 !}+\frac{x^{5}}{5 !}+\frac{x^{6}}{6 !}+\frac{x^{7}}{7 !}+\notag\\ 
+        &+\frac{x^{8}}{8 !}+\frac{x^{9}}{9 !}+\frac{x^{10}}{10 !}+\frac{x^{11}}{11 !}+\cdots.
+    \end{align}
+    \textbf{Note:} If you use equation numbering; simply put a \texttt{\textbackslash notag} before you line-break (\texttt{\textbackslash\textbackslash}) for every line you want un-numbered.\\
+    
+    \item[\textbf{P:}]  \textit{A reference is going over the column width} 
+    \item[\textbf{S:}] This is commonly caused by a website link. Put your link inside a \texttt{\textbackslash url\{\}}. If this does not solve it, make sure to line break just before the link to give it enough space. Using \texttt{\textbackslash url} inside \texttt{thebibliography} normally supports automatic line breaking, so you should not have to worry about that there. It is also possible to use \texttt{\textbackslash href\{your link here\}\{text to display\}}.\\
+    
+    \item[\textbf{P:}]  \textit{Text is going over the column width}
+    \item[\textbf{S:}] Text written using \texttt{\textbackslash textbf\{\}}, \texttt{\textbackslash textit\{\}}, \texttt{\textbackslash texttt\{\}} etc. or in-line variables/equations inside \texttt{\$\$}  do \textbf{not} support automatic line breaking (as you can see above). Sometimes, longer scientific abbreviations like DF-DFPC-OR are not supported by automatic line-breaking. Be aware of this as you need to line-break manually if needed. \\
+    
+    \item[\textbf{P:}]  \textit{I have unwanted white-space between paragraphs} 
+    \item[\textbf{S:}] This is sometimes related to wide and/or poorly placed figures. In addition to setting a correct width, you may need to specify \texttt{[t!]} or \texttt{[ht!]}  instead of \texttt{[H]} to move your figure to the top of the page. \\
+    
+    \textbf{Is your problem (or solution) not listed here?} Let us know by sending an email to \href{mailto:it@tekniskfysik.se}{it@tekniskfysik.se}.  
+\end{enumerate}
+\subsection*{How to make high-resolution illustrations}
+\begin{enumerate}[nolistsep]
+    \item[\textbf{P:}] \textit{My illustration is not sharp}
+    \item[\textbf{S:}] PowerPoint is perfect if you want to make illustrations. The trick is to first set the resolution of how PowerPoint should save image files and secondly define your figures correctly inside PowerPoint. So first, change the resolution by modifying the Register! To see how this is done on a PC, follow this \href{https://support.microsoft.com/en-ph/help/827745/how-to-change-the-export-resolution-of-a-powerpoint-slide}{\underline{link}}. If you are using a Mac or Linux, try Google â€change power point resolution mac/linuxâ€.\\
+    
+    Second, in PowerPoint you need to first set the correct size of you figure before you start to draw (8 cm wide for single column figure or 16 cm wide for two column figure). Under the tab \texttt{Design}, change \texttt{Slide Size} to the preferred width and height. Now, make your illustrations using the drawing tools. If you include figure text, set the font size to about 9, \texttt{Arial} is a good choice of font style. When you are ready, just use the command \texttt{Save as} and change the type to jpeg, png or what ever format you want to use. If you need higher resolution (larger image $\rightarrow$ higher resolution), just change the Register to 600 or 1200 DPI.\\
+    
+    If you prefer you can also create illustrations directly in your \LaTeX-document using the Ti\textit{k}Z-package \\ (\texttt{\textbackslash usepackage\{tikz\}}), where you \textit{program} your drawings. Refer to Google for some examples (with code) and tutorials. Note however that that Ti\textit{k}Z has a steeper learning curve and can in some situations be very time-consuming. PowerPoint is therefore \textbf{recommended} over Ti\textit{k}Z.
+\end{enumerate}
+\vfill
+\begin{flushright}
+\textit{Matlab tips on next page.}
+\end{flushright}
+\newpage
+\subsection*{How to save your Matlab plot as a high-res image}
+% Tillagt / J
+\begin{enumerate}[nolistsep]
+    \item[\textbf{P:}] \textit{My result figure is not sharp}
+    \item[\textbf{S:}] Make sure to save your figure with at least 300 dots per inch (DPI). This is easily done in Matlab by simply placing a \texttt{print}-command after a \texttt{plot} in your script. For example, if you place the following command just after your plot commands:\\
+
+    \texttt{print(gcf,'figname','-dpng','-r300');}, \\
+    
+    then Matlab will save your plot as \texttt{figname.png} with 300 DPI. The argument \texttt{gcf} is needed to Get the Current Figure-handle and can be removed if you have one figure plotted by your Matlab-script. \\
+
+    You can also save your plot as an .eps-file - a \textit{vector} graphics file format. If you place the following command just after your plot commands:\\
+    
+    \texttt{print(gcf,'figname','-depsc');},\\ 
+    
+    then Matlab will save your plot as \texttt{figname.eps}. Note that the \texttt{c} in \texttt{'-depsc'} is needed to save your plot \textit{with color.}. While the \textit{raster} image file type .png will suffice in most cases (given that you have set a high DPI), .eps-files offer a  higher image quality (although this is not easily noticed until you zoom in far on your image). Note however that you cannot view an .eps-image on its own. See Figure \ref{fig:matlabplots} for a comparison between the resulting images. \\
+    
+    Note also that you may need to set your axes appropriately before saving your plot. A safe bet can be to use \texttt{axis square} after your plot. For other axis-limiting plot options, see the \href{https://se.mathworks.com/help/matlab/ref/axis.html}{\underline{axis documentation}.}\\
+    
+    
+    For a tutorial on how to \textit{stylize} your plot further, see this \href{https://blogs.mathworks.com/loren/2007/12/11/making-pretty-graphs/}{\underline{MathWorks blog post}}.
+    
+   
+\end{enumerate}
+\newpage % Switch column 
+\begin{figure}[ht!]
+\centering
+    % Example on how to use subfigures to 
+    \begin{subfigure}[t]{\columnwidth} %t = top, limit figure width to columnwidth = 0.5 textwidth
+        \centering
+        \includegraphics[width = \columnwidth]{300dpi.png} 
+        \caption{.png (300 DPI)}
+        \label{fig:300dpi}
+    \end{subfigure}
+    
+    \begin{subfigure}[c]{\columnwidth} %c = center
+        \centering
+        \includegraphics[width = \columnwidth]{600dpi.png} 
+        \caption{.png (600 DPI)}
+        \label{fig:600dpi}
+    \end{subfigure}
+    
+    
+    \begin{subfigure}[b]{\columnwidth} % b = bottom
+        \centering
+        \includegraphics[width = .9\columnwidth]{EPS}
+        \caption{.eps}
+        \label{fig:eps}
+    \end{subfigure}
+    
+\caption{Example of a Matlab-plot being saved as (a) a .png-file with 300 DPI, (b) a .png-file with 600 DPI and (c) as an .eps-file. All images where saved using the \texttt{print}-command. Note the small difference in size between the .png and .eps images. Matlab saves .eps-files differently, that is, they do not include any additional white-space around the figure axes.}
+\label{fig:matlabplots}
+\end{figure}
+
+\end{document}
