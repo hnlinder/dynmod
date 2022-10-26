@@ -43,31 +43,36 @@ def plot_degree_dist(udegrees, Pd, show=False, fig_nr=None, network_name=None,le
         plt.show()
 
 
-def plot_clustering_coefficient(clustering_coeff, bins=None, show=False, fig_nr=None, network_name=None, legend_on=True, normalized=True):
+def plot_clustering_coefficient(clustering_coeff, bins=None, show=False, fig_nr=None, network_name=None, legend_on=True, normalized=False, line_type= None):
     clustering_coeff = list(clustering_coeff)
     if fig_nr is not None:
         if fig_nr==0:
             plt.figure()
         else:
             plt.figure(fig_nr)
-    # if bins is None:
+    if bins is None:
         # bins = np.arange(np.min(clustering_coeff),np.max(clustering_coeff))
+        bins=np.linspace(0,1,10)
+    if line_type is None:
+        line_type = "-"
+    ax = plt.gca()
+    color = next(ax._get_lines.prop_cycler)["color"]
     if normalized:
         # increment and get the "props" cycle (and extract the color)
-        ax = plt.gca()
-        color = next(ax._get_lines.prop_cycler)["color"]
-        (counts,bins) = np.histogram(clustering_coeff,bins=np.linspace(0,1,10)) #bins=np.linspace(0,1,10)
+        (counts,bins) = np.histogram(clustering_coeff,bins=bins) #bins=np.linspace(0,1,10)
         plt.hist(bins[:-1], bins, weights=counts/max(counts), ls="dashed", lw=3, edgecolor=color, label=network_name,fc="None")
 
     else:
         if network_name is not None:
-            plt.hist(clustering_coeff,bins, ls="dashed", lw=3,label=network_name,fc="None")
+            (counts,bins) = np.histogram(clustering_coeff,bins=bins) #bins=np.linspace(0,1,10)
+            plt.hist(bins[:-1], bins, weights=counts, histtype="step",lw=3, edgecolor=color, label=network_name,fc=color, alpha=.3, ls=line_type)
+            # plt.hist(clustering_coeff,bins, ls="dashed", lw=3,label=network_name,fc="None")
         else:
             plt.hist(clustering_coeff,bins)
 
     plt.xlabel("Clustering coefficient")
     plt.ylabel("Number of nodes")
-
+    plt.yscale("log")
     if legend_on:
         plt.legend(loc="best")
     # if network_name is not None:
@@ -102,22 +107,30 @@ def get_shortest_path_lengths(G):
 
 
 
-def plot_spl_hist(spl_list, bins=None, show=False, fig_nr=None, network_name=None, legend_on=True):
+def plot_spl_hist(spl_list, bins=None, show=False, fig_nr=None, network_name=None, legend_on=True, line_type=None):
     if fig_nr is not None:
         if fig_nr==0:
             plt.figure()
         else:
             plt.figure(fig_nr)
-    # if bins is None:
+    ax = plt.gca()
+    color = next(ax._get_lines.prop_cycler)["color"]
+    if bins is None:
+        bins = np.linspace(0,10,10)
         # bins = np.arange(np.min(spl_list),np.max(spl_list)+1)
+    if line_type is None: 
+        line_type= "-"
     if network_name is not None:
-        plt.hist(spl_list,bins,label=network_name)
+        (counts,bins) = np.histogram(spl_list,bins=bins) #bins=np.linspace(0,1,10)
+        plt.hist(bins[:-1], bins, weights=counts, histtype="step",ls=line_type,  lw=3, edgecolor=color, label=network_name,fc=color, alpha=.3)
+        # plt.hist(spl_list,bins,label=network_name)
     else:
         plt.hist(spl_list,bins)
     if legend_on:
         plt.legend(loc="best")
     plt.xlabel("Shortest path length between nodes")
     plt.ylabel("Nr of node pairs")
+    plt.yscale("log")
     # if network_name is not None:
         # plt.title(network_name)
 
@@ -169,8 +182,12 @@ def test_plot_increment():
 # folder_path =
 network_paths = ["../networks/yeast_gene_net.txt", "../networks/human_kidney_protein_net.txt", "../networks/ecoli_metabolic_net.txt" ]
 network_names = [ "Yeast gene network", "Human kidney protein", "E.Coli metabolic net"]
-save_plots = False
-draw_networks = True
+save_plots =True
+draw_networks = False#True
+line_types = ["-", "--", ":"]
+
+plot_names = ["degree_dist","clustering_coeff", "spl"]
+
 if __name__=="__main__":
     # Read the network file as an edgelist, as specified in instructions
     # Note that the delimiter is ","
@@ -190,18 +207,23 @@ if __name__=="__main__":
 
         unique_degrees,degree_dist=get_degree_distribution(G)
         plot_degree_dist(unique_degrees,degree_dist,fig_nr=1 , network_name=network_names[i])
-        if save_plots:
-            save_plot(network_names[i].replace(" ", "_").lower()+"_degree_dist_v","../report/figs/task1/")
+        # if save_plots:
+            # save_plot(network_names[i].replace(" ", "_").lower()+"_degree_dist_v","../report/figs/task1/")
 
         clustering_coeff=get_clustering_coefficient(G)
-        plot_clustering_coefficient(clustering_coeff, fig_nr=2, network_name=network_names[i])
-        if save_plots:
-            save_plot(network_names[i].replace(" ", "_").lower()+"_clustering_coeff_v","../report/figs/task1/")
+        plot_clustering_coefficient(clustering_coeff, fig_nr=2, network_name=network_names[i],line_type=line_types[i])
+        # if save_plots:
+            # save_plot(network_names[i].replace(" ", "_").lower()+"_clustering_coeff_v","../report/figs/task1/")
         spl=get_shortest_path_lengths(G)
-        plot_spl_hist(spl,fig_nr=3, network_name=network_names[i])
-        if save_plots:
-            save_plot(network_names[i].replace(" ", "_").lower()+"_spl_v","../report/figs/task1/")
+        plot_spl_hist(spl,fig_nr=3, network_name=network_names[i], line_type=line_types[i])
+        # if save_plots:
+            # save_plot(network_names[i].replace(" ", "_").lower()+"_spl_v","../report/figs/task1/")
         print(np.unique(spl))
+
+    if save_plots:
+        for i in range(3):
+
+            save_plot(plot_names[i].replace(" ", "_").lower()+"_v","../report/figs/task1/",fig_nr=i+1)
 
 
     plt.show()

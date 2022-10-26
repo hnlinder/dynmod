@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{physics}
+\title{notes.tex }
+\author{Henrik Linder}
+\date{\today}
+\begin{document}
+\maketitle
+
+\begin{center}
+\begin{tabular}{ |l|c| } 
+ \hline
+ &\\
+ Cell volume &1$\mu $m$^3$ \\ 
+  Length of DNA&1550 $\mu $m \\ 
+  Length of DNA &$5\cdot 10^{6}$ bp \\ 
+  Average protein size&360 AAs \\ 
+					  Av. diameter of protein&5 nm\\
+					  Conc. of proteins&5-8mM\\
+					  Diameter of ribosome&20 nm\\
+					  Volume fraction of proteins&17\%\\
+					  Volume fraction of all RNA&6\%\\
+					  Volume fraction of mRNA&.2\%\\
+					  Volume fraction of DNA&1\%\\
+					  Volume fraction of ribosomes&8\%\\
+					  Number of mRNA molecules&4 000\\
+					  Number of rRNA molecules&18 000\\
+					  Number of tRNA molecules&200 000\\
+					  Number of all proteins&3 500 000\\
+					  Number of amino acids&$10^9$\\
+					  Number of free amino acids&6 000 000\\
+					  Number of ribosomes&40 000\\
+					  &\\
+					  Half-life mRNA& 5 min\\
+					  Half-life E.Coli& 30 min\\
+					  Conc. 1 protein in cell&1 nM\\
+					  Translation rate / ribosome&13.8 $\frac{\text{codons}}{\text{ribosome}\cdot s}$\\
+					  Translation rate / ribosome&41.4 $\frac{\text{bps}}{\text{ribosome}\cdot s}$\\
+					  &\\
+					  &\\
+					  &\\
+ \hline
+\end{tabular}
+\end{center}
+
+Diffusion time across a distace $d$ in the E.Coli cell: 
+\begin{equation}
+	t_{\text{diffusion}} = \frac{d^2}{2D}
+\end{equation}
+where $D$ is diffusion const. (Typically of the order .1-10 $\mu m^2/s$)
+
+On-time is the time it takes for diffusing particle to find its target in the volume $V$
+\begin{equation}
+	\frac{1}{\tau_{on}} = \frac{4\pi D\epsilon N}{V}
+\end{equation}
+I think $N$ is number of particles needed for turning on. 
+
+Searching along DNA, we get 
+\begin{equation}
+	t_{on} = \frac{L^2}{D}
+\end{equation}
+
+
+\end{document}

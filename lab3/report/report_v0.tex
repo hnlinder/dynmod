@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{physics}
+\usepackage{subcaption}
 \title{report v0.tex }
 \author{Henrik Linder}
 \date{\today}
@@ -14,12 +15,32 @@
 
 
 
-\section{Task 1}
+\section{Task 1: Determining overall structure}
 \subsection{Theory}
 \subsection{Results and discussion}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{"figs/task1/degree_dist_v1.eps"}
+		\caption{}
+		\label{fig:task1_degree_dist}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{"figs/task1/clustering_coeff_v1.eps"}
+		\caption{}
+		\label{fig:task1_clustering_coeff}
+	\end{subfigure}
+	\begin{subfigure}[b]{.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{"figs/task1/spl_v1.eps"}
+		\caption{}
+		\label{fig:task1_spl}
+	\end{subfigure}
+\end{figure}
 
-
-\section{Task 2}
+\section{Task 2: Comparison against random networks}
 \subsection{Theory}
 The Erdös-Réyni (ER) random network follows a simple algorithm. 
 \begin{enumerate}
@@ -41,10 +62,26 @@ Given this generation algorithm, the average number of degrees (connections to a
 
 
 
-\section{Task 3}
+\section{Task 3: Robustness in biology}
 \subsection{Theory}
+The diameter of a network is defined as the longest of all shortest paths in the network. 
 \subsection{Results and discussion}
 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{"figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0.eps"}
+		\caption{Randomly removing nodes.}
+		\label{fig:task3_rand}
+	\end{subfigure}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{"figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1.eps"}
+		\caption{Removing top nodes.}
+		\label{fig:task3_top}
+	\end{subfigure}
+\end{figure}
 
 
 \end{document}

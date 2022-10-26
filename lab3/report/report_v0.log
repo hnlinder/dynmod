@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.7.5)  12 OCT 2022 11:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.7.5)  19 OCT 2022 16:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -130,35 +130,57 @@ File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box54
 ))
 Package: xparse 2022-01-12 L3 Experimental document command parser
-)) (./report_v0.aux)
+)) (/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+ (/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+ (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen150
+\captionmargin=\dimen151
+\caption@leftmargin=\dimen152
+\caption@rightmargin=\dimen153
+\caption@width=\dimen154
+\caption@indent=\dimen155
+\caption@parindent=\dimen156
+\caption@hangindent=\dimen157
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count273
+\c@continuedfloat=\count274
+Package caption Info: float package is loaded.
+)
+\c@subfigure=\count275
+\c@subtable=\count276
+) (./report_v0.aux)
 \openout1 = `report_v0.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
-\scratchdimen=\dimen150
+\scratchcounter=\count277
+\scratchdimen=\dimen158
 \scratchbox=\box55
-\nofMPsegments=\count274
-\nofMParguments=\count275
+\nofMPsegments=\count278
+\nofMParguments=\count279
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count276
-\MPscratchDim=\dimen151
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
+\MPscratchCnt=\count280
+\MPscratchDim=\dimen159
+\MPnumerator=\count281
+\makeMPintoPDFobject=\count282
 \everyMPtoPDFconversion=\toks27
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -166,29 +188,109 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+Package epstopdf Info: Source file: <figs/task1/degree_dist_v1.eps>
+(epstopdf)                    date: 2022-10-19 16:05:12
+(epstopdf)                    size: 34697 bytes
+(epstopdf)             Output file: <figs/task1/degree_dist_v1-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=figs/task1/degree_dist_v1-eps-converted-to.pdf figs/task1/degree_dist_v1.eps>
+(epstopdf)             \includegraphics on input line 25.
+runsystem(repstopdf --outfile=figs/task1/degree_dist_v1-eps-converted-to.pdf figs/task1/degree_dist_v1.eps)...executed safely (allowed).
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./report_v0.aux) ) 
+Package epstopdf Info: Result file: <figs/task1/degree_dist_v1-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-10-19 16:06:10
+(epstopdf)                    size: 36949 bytes.
+<figs/task1/degree_dist_v1-eps-converted-to.pdf, id=1, 463.7325pt x 347.2975pt>
+File: figs/task1/degree_dist_v1-eps-converted-to.pdf Graphic file (type pdf)
+<use figs/task1/degree_dist_v1-eps-converted-to.pdf>
+Package pdftex.def Info: figs/task1/degree_dist_v1-eps-converted-to.pdf  used on input line 25.
+(pdftex.def)             Requested size: 103.50105pt x 77.51324pt.
+Package epstopdf Info: Source file: <figs/task1/clustering_coeff_v1.eps>
+(epstopdf)                    date: 2022-10-19 16:05:13
+(epstopdf)                    size: 26971 bytes
+(epstopdf)             Output file: <figs/task1/clustering_coeff_v1-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=figs/task1/clustering_coeff_v1-eps-converted-to.pdf figs/task1/clustering_coeff_v1.eps>
+(epstopdf)             \includegraphics on input line 31.
+runsystem(repstopdf --outfile=figs/task1/clustering_coeff_v1-eps-converted-to.pdf figs/task1/clustering_coeff_v1.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figs/task1/clustering_coeff_v1-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-10-19 16:06:10
+(epstopdf)                    size: 14667 bytes.
+<figs/task1/clustering_coeff_v1-eps-converted-to.pdf, id=2, 463.7325pt x 347.2975pt>
+File: figs/task1/clustering_coeff_v1-eps-converted-to.pdf Graphic file (type pdf)
+<use figs/task1/clustering_coeff_v1-eps-converted-to.pdf>
+Package pdftex.def Info: figs/task1/clustering_coeff_v1-eps-converted-to.pdf  used on input line 31.
+(pdftex.def)             Requested size: 103.50105pt x 77.51324pt.
+Package epstopdf Info: Source file: <figs/task1/spl_v1.eps>
+(epstopdf)                    date: 2022-10-19 16:05:13
+(epstopdf)                    size: 34677 bytes
+(epstopdf)             Output file: <figs/task1/spl_v1-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=figs/task1/spl_v1-eps-converted-to.pdf figs/task1/spl_v1.eps>
+(epstopdf)             \includegraphics on input line 37.
+runsystem(repstopdf --outfile=figs/task1/spl_v1-eps-converted-to.pdf figs/task1/spl_v1.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <figs/task1/spl_v1-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-10-19 16:06:11
+(epstopdf)                    size: 17309 bytes.
+<figs/task1/spl_v1-eps-converted-to.pdf, id=3, 463.7325pt x 347.2975pt>
+File: figs/task1/spl_v1-eps-converted-to.pdf Graphic file (type pdf)
+<use figs/task1/spl_v1-eps-converted-to.pdf>
+Package pdftex.def Info: figs/task1/spl_v1-eps-converted-to.pdf  used on input line 37.
+(pdftex.def)             Requested size: 103.50105pt x 77.51324pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./figs/task1/degree_dist_v1-eps-converted-to.pdf> <./figs/task1/clustering_coeff_v1-eps-converted-to.pdf> <./figs/task1/spl_v1-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0.eps>
+(epstopdf)                    date: 2022-10-18 12:55:48
+(epstopdf)                    size: 23287 bytes
+(epstopdf)             Output file: <figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-10-18 21:19:55
+(epstopdf)                    size: 15080 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0-eps-converted-to.pdf figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0.eps>
+(epstopdf)             \includegraphics on input line 74.
+Package epstopdf Info: Output file is already uptodate.
+<figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0-eps-converted-to.pdf, id=140, 463.7325pt x 347.2975pt>
+File: figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0-eps-converted-to.pdf Graphic file (type pdf)
+<use figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0-eps-converted-to.pdf>
+Package pdftex.def Info: figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0-eps-converted-to.pdf  used on input line 74.
+(pdftex.def)             Requested size: 169.0519pt x 126.6062pt.
+Package epstopdf Info: Source file: <figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1.eps>
+(epstopdf)                    date: 2022-10-18 19:15:34
+(epstopdf)                    size: 23967 bytes
+(epstopdf)             Output file: <figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-10-18 21:19:55
+(epstopdf)                    size: 14890 bytes
+(epstopdf)             Command: <repstopdf --outfile=figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1-eps-converted-to.pdf figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1.eps>
+(epstopdf)             \includegraphics on input line 80.
+Package epstopdf Info: Output file is already uptodate.
+<figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1-eps-converted-to.pdf, id=141, 463.7325pt x 347.2975pt>
+File: figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1-eps-converted-to.pdf Graphic file (type pdf)
+<use figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1-eps-converted-to.pdf>
+Package pdftex.def Info: figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1-eps-converted-to.pdf  used on input line 80.
+(pdftex.def)             Requested size: 169.0519pt x 126.6062pt.
+ [2 <./figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0-eps-converted-to.pdf> <./figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1-eps-converted-to.pdf>] (./report_v0.aux) ) 
 Here is how much of TeX's memory you used:
- 3358 strings out of 478238
- 47464 string characters out of 5850457
- 341370 words of memory out of 5000000
- 21576 multiletter control sequences out of 15000+600000
- 476814 words of font info for 58 fonts, out of 8000000 for 9000
+ 4836 strings out of 478238
+ 77654 string characters out of 5850457
+ 372884 words of memory out of 5000000
+ 23036 multiletter control sequences out of 15000+600000
+ 477113 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,17n,77p,337b,218s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on report_v0.pdf (1 page, 111195 bytes).
+ 72i,17n,77p,338b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report_v0.pdf (2 pages, 209310 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 272 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
