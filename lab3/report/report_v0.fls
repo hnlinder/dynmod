@@ -326,8 +326,9 @@ INPUT ./figs/task1/degree_dist_v1.eps
 INPUT figs/task1/degree_dist_v1.eps
 INPUT ./figs/task1/degree_dist_v1.eps
 INPUT ./figs/task1/degree_dist_v1.eps
-INPUT ./figs/task1/degree_dist_v1.eps
 INPUT ./figs/task1/degree_dist_v1-eps-converted-to.pdf
+INPUT ./figs/task1/degree_dist_v1-eps-converted-to.pdf
+INPUT ./figs/task1/degree_dist_v1.eps
 INPUT ./figs/task1/degree_dist_v1-eps-converted-to.pdf
 INPUT ./figs/task1/degree_dist_v1-eps-converted-to.pdf
 OUTPUT report_v0.pdf
@@ -338,8 +339,9 @@ INPUT ./figs/task1/clustering_coeff_v1.eps
 INPUT figs/task1/clustering_coeff_v1.eps
 INPUT ./figs/task1/clustering_coeff_v1.eps
 INPUT ./figs/task1/clustering_coeff_v1.eps
-INPUT ./figs/task1/clustering_coeff_v1.eps
 INPUT ./figs/task1/clustering_coeff_v1-eps-converted-to.pdf
+INPUT ./figs/task1/clustering_coeff_v1-eps-converted-to.pdf
+INPUT ./figs/task1/clustering_coeff_v1.eps
 INPUT ./figs/task1/clustering_coeff_v1-eps-converted-to.pdf
 INPUT ./figs/task1/clustering_coeff_v1-eps-converted-to.pdf
 INPUT ./figs/task1/clustering_coeff_v1-eps-converted-to.pdf
@@ -348,8 +350,9 @@ INPUT ./figs/task1/spl_v1.eps
 INPUT figs/task1/spl_v1.eps
 INPUT ./figs/task1/spl_v1.eps
 INPUT ./figs/task1/spl_v1.eps
-INPUT ./figs/task1/spl_v1.eps
 INPUT ./figs/task1/spl_v1-eps-converted-to.pdf
+INPUT ./figs/task1/spl_v1-eps-converted-to.pdf
+INPUT ./figs/task1/spl_v1.eps
 INPUT ./figs/task1/spl_v1-eps-converted-to.pdf
 INPUT ./figs/task1/spl_v1-eps-converted-to.pdf
 INPUT ./figs/task1/spl_v1-eps-converted-to.pdf
