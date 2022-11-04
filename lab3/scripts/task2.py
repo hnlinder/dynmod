@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use("tkagg")
 import glob
-import scipy
+# import scipy
 
 
 def get_degree_distribution(G):

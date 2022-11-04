@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.8.29)  8 OCT 2022 20:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.8.29)  9 OCT 2022 19:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -724,12 +724,12 @@ Package epstopdf Info: Source file: <figs2/task2_m_vs_t_v1.eps>
 (epstopdf)                    date: 2022-10-05 21:43:58
 (epstopdf)                    size: 3892506 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task2_m_vs_t_v1-eps-converted-to.pdf figs2/task2_m_vs_t_v1.eps>
-(epstopdf)             \includegraphics on input line 246.
+(epstopdf)             \includegraphics on input line 247.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task2_m_vs_t_v1-eps-converted-to.pdf, id=127, 538.01pt x 347.2975pt>
 File: figs2/task2_m_vs_t_v1-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task2_m_vs_t_v1-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task2_m_vs_t_v1-eps-converted-to.pdf  used on input line 246.
+Package pdftex.def Info: figs2/task2_m_vs_t_v1-eps-converted-to.pdf  used on input line 247.
 (pdftex.def)             Requested size: 245.2399pt x 158.30676pt.
 Package epstopdf Info: Source file: <figs2/task2_hist_v1.eps>
 (epstopdf)                    date: 2022-10-05 21:41:23
@@ -738,12 +738,12 @@ Package epstopdf Info: Source file: <figs2/task2_hist_v1.eps>
 (epstopdf)                    date: 2022-10-05 21:43:59
 (epstopdf)                    size: 14961 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task2_hist_v1-eps-converted-to.pdf figs2/task2_hist_v1.eps>
-(epstopdf)             \includegraphics on input line 252.
+(epstopdf)             \includegraphics on input line 253.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task2_hist_v1-eps-converted-to.pdf, id=128, 527.9725pt x 347.2975pt>
 File: figs2/task2_hist_v1-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task2_hist_v1-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task2_hist_v1-eps-converted-to.pdf  used on input line 252.
+Package pdftex.def Info: figs2/task2_hist_v1-eps-converted-to.pdf  used on input line 253.
 (pdftex.def)             Requested size: 245.2399pt x 161.31679pt.
  [2 <./figs2/task1_F2_v4-eps-converted-to.pdf> <./figs2/task1_F4_v4-eps-converted-to.pdf> <./figs2/task1_F6_v8.png> <./figs2/task1_F2_hist_v4-eps-converted-to.pdf> <./figs2/task1_F4_hist_v4-eps-converted-to.pdf> <./figs2/task1_F6_hist_v5-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figs2/task3_2_2_v0.eps>
@@ -753,12 +753,12 @@ Package epstopdf Info: Source file: <figs2/task3_2_2_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:17:37
 (epstopdf)                    size: 1888650 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task3_2_2_v0-eps-converted-to.pdf figs2/task3_2_2_v0.eps>
-(epstopdf)             \includegraphics on input line 301.
+(epstopdf)             \includegraphics on input line 302.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task3_2_2_v0-eps-converted-to.pdf, id=307, 463.7325pt x 347.2975pt>
 File: figs2/task3_2_2_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task3_2_2_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task3_2_2_v0-eps-converted-to.pdf  used on input line 301.
+Package pdftex.def Info: figs2/task3_2_2_v0-eps-converted-to.pdf  used on input line 302.
 (pdftex.def)             Requested size: 245.2399pt x 183.66934pt.
 Package epstopdf Info: Source file: <figs2/task3_hist_2_2_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:10:16
@@ -767,12 +767,12 @@ Package epstopdf Info: Source file: <figs2/task3_hist_2_2_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:17:38
 (epstopdf)                    size: 14544 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task3_hist_2_2_v0-eps-converted-to.pdf figs2/task3_hist_2_2_v0.eps>
-(epstopdf)             \includegraphics on input line 307.
+(epstopdf)             \includegraphics on input line 308.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task3_hist_2_2_v0-eps-converted-to.pdf, id=308, 521.95pt x 347.2975pt>
 File: figs2/task3_hist_2_2_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task3_hist_2_2_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task3_hist_2_2_v0-eps-converted-to.pdf  used on input line 307.
+Package pdftex.def Info: figs2/task3_hist_2_2_v0-eps-converted-to.pdf  used on input line 308.
 (pdftex.def)             Requested size: 245.2399pt x 163.18214pt.
 Package epstopdf Info: Source file: <figs2/task3_1_8_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:09:21
@@ -781,12 +781,12 @@ Package epstopdf Info: Source file: <figs2/task3_1_8_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:18:04
 (epstopdf)                    size: 1886428 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task3_1_8_v0-eps-converted-to.pdf figs2/task3_1_8_v0.eps>
-(epstopdf)             \includegraphics on input line 313.
+(epstopdf)             \includegraphics on input line 314.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task3_1_8_v0-eps-converted-to.pdf, id=309, 463.7325pt x 347.2975pt>
 File: figs2/task3_1_8_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task3_1_8_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task3_1_8_v0-eps-converted-to.pdf  used on input line 313.
+Package pdftex.def Info: figs2/task3_1_8_v0-eps-converted-to.pdf  used on input line 314.
 (pdftex.def)             Requested size: 245.2399pt x 183.66934pt.
 Package epstopdf Info: Source file: <figs2/task3_hist_1_8_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:08:54
@@ -795,12 +795,12 @@ Package epstopdf Info: Source file: <figs2/task3_hist_1_8_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:18:04
 (epstopdf)                    size: 15779 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task3_hist_1_8_v0-eps-converted-to.pdf figs2/task3_hist_1_8_v0.eps>
-(epstopdf)             \includegraphics on input line 319.
+(epstopdf)             \includegraphics on input line 320.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task3_hist_1_8_v0-eps-converted-to.pdf, id=310, 463.7325pt x 347.2975pt>
 File: figs2/task3_hist_1_8_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task3_hist_1_8_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task3_hist_1_8_v0-eps-converted-to.pdf  used on input line 319.
+Package pdftex.def Info: figs2/task3_hist_1_8_v0-eps-converted-to.pdf  used on input line 320.
 (pdftex.def)             Requested size: 245.2399pt x 183.66934pt.
 Package epstopdf Info: Source file: <figs2/task3_1_4_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:13:20
@@ -809,12 +809,12 @@ Package epstopdf Info: Source file: <figs2/task3_1_4_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:18:31
 (epstopdf)                    size: 1849488 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task3_1_4_v0-eps-converted-to.pdf figs2/task3_1_4_v0.eps>
-(epstopdf)             \includegraphics on input line 325.
+(epstopdf)             \includegraphics on input line 326.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task3_1_4_v0-eps-converted-to.pdf, id=311, 463.7325pt x 347.2975pt>
 File: figs2/task3_1_4_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task3_1_4_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task3_1_4_v0-eps-converted-to.pdf  used on input line 325.
+Package pdftex.def Info: figs2/task3_1_4_v0-eps-converted-to.pdf  used on input line 326.
 (pdftex.def)             Requested size: 245.2399pt x 183.66934pt.
 Package epstopdf Info: Source file: <figs2/task3_hist_1_4_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:12:15
@@ -823,12 +823,12 @@ Package epstopdf Info: Source file: <figs2/task3_hist_1_4_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:18:31
 (epstopdf)                    size: 14349 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task3_hist_1_4_v0-eps-converted-to.pdf figs2/task3_hist_1_4_v0.eps>
-(epstopdf)             \includegraphics on input line 331.
+(epstopdf)             \includegraphics on input line 332.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task3_hist_1_4_v0-eps-converted-to.pdf, id=312, 521.95pt x 347.2975pt>
 File: figs2/task3_hist_1_4_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task3_hist_1_4_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task3_hist_1_4_v0-eps-converted-to.pdf  used on input line 331.
+Package pdftex.def Info: figs2/task3_hist_1_4_v0-eps-converted-to.pdf  used on input line 332.
 (pdftex.def)             Requested size: 245.2399pt x 163.18214pt.
 Package epstopdf Info: Source file: <figs2/task4_m_vs_t_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:24:13
@@ -837,12 +837,12 @@ Package epstopdf Info: Source file: <figs2/task4_m_vs_t_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:25:58
 (epstopdf)                    size: 1833765 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task4_m_vs_t_v0-eps-converted-to.pdf figs2/task4_m_vs_t_v0.eps>
-(epstopdf)             \includegraphics on input line 342.
+(epstopdf)             \includegraphics on input line 343.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task4_m_vs_t_v0-eps-converted-to.pdf, id=313, 463.7325pt x 347.2975pt>
 File: figs2/task4_m_vs_t_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task4_m_vs_t_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task4_m_vs_t_v0-eps-converted-to.pdf  used on input line 342.
+Package pdftex.def Info: figs2/task4_m_vs_t_v0-eps-converted-to.pdf  used on input line 343.
 (pdftex.def)             Requested size: 245.2399pt x 183.66934pt.
 Package epstopdf Info: Source file: <figs2/task4_hist_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:23:42
@@ -851,12 +851,12 @@ Package epstopdf Info: Source file: <figs2/task4_hist_v0.eps>
 (epstopdf)                    date: 2022-10-05 22:25:58
 (epstopdf)                    size: 13522 bytes
 (epstopdf)             Command: <repstopdf --outfile=figs2/task4_hist_v0-eps-converted-to.pdf figs2/task4_hist_v0.eps>
-(epstopdf)             \includegraphics on input line 348.
+(epstopdf)             \includegraphics on input line 349.
 Package epstopdf Info: Output file is already uptodate.
 <figs2/task4_hist_v0-eps-converted-to.pdf, id=314, 507.8975pt x 347.2975pt>
 File: figs2/task4_hist_v0-eps-converted-to.pdf Graphic file (type pdf)
 <use figs2/task4_hist_v0-eps-converted-to.pdf>
-Package pdftex.def Info: figs2/task4_hist_v0-eps-converted-to.pdf  used on input line 348.
+Package pdftex.def Info: figs2/task4_hist_v0-eps-converted-to.pdf  used on input line 349.
 (pdftex.def)             Requested size: 245.2399pt x 167.69188pt.
  [3 <./figs2/task2_m_vs_t_v1-eps-converted-to.pdf> <./figs2/task2_hist_v1-eps-converted-to.pdf>]
 
@@ -875,17 +875,20 @@ Overfull \vbox (26.07542pt too high) has occurred while \output is active []
 
 Overfull \vbox (12.07544pt too high) has occurred while \output is active []
 
- [4 <./figs2/task3_2_2_v0-eps-converted-to.pdf> <./figs2/task3_hist_2_2_v0-eps-converted-to.pdf> <./figs2/task3_1_8_v0-eps-converted-to.pdf> <./figs2/task3_hist_1_8_v0-eps-converted-to.pdf> <./figs2/task3_1_4_v0-eps-converted-to.pdf> <./figs2/task3_hist_1_4_v0-eps-converted-to.pdf>] 
+ [4 <./figs2/task3_2_2_v0-eps-converted-to.pdf> <./figs2/task3_hist_2_2_v0-eps-converted-to.pdf> <./figs2/task3_1_8_v0-eps-converted-to.pdf> <./figs2/task3_hist_1_8_v0-eps-converted-to.pdf> <./figs2/task3_1_4_v0-eps-converted-to.pdf> <./figs2/task3_hist_1_4_v0-eps-converted-to.pdf>]
+Underfull \vbox (badness 1199) has occurred while \output is active []
+
+ 
 AED: lastpage setting LastPage
 [5 <./figs2/task4_m_vs_t_v0-eps-converted-to.pdf> <./figs2/task4_hist_v0-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 427.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 427.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 428.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 428.
  (./report_v1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 427.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 427.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 428.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 428.
 Package rerunfilecheck Info: File `report_v1.out' has not changed.
 (rerunfilecheck)             Checksum: 61A47350607F628C3FAC3AAF33A1B59C;919.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 427.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 428.
  ) 
 Here is how much of TeX's memory you used:
  14981 strings out of 483081
@@ -896,7 +899,7 @@ Here is how much of TeX's memory you used:
  59 hyphenation exceptions out of 8191
  49i,12n,51p,1237b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report_v1.pdf (5 pages, 15398024 bytes).
+Output written on report_v1.pdf (5 pages, 15397833 bytes).
 PDF statistics:
  770 PDF objects out of 1000 (max. 8388607)
  253 compressed objects within 3 object streams

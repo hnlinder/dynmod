@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1665254176 "report_v1.tex" "report_v1.pdf" "report_v1" 1665254176
+["pdflatex"] 1665335838 "report_v1.tex" "report_v1.pdf" "report_v1" 1665335839
   "/etc/texmf/web2c/texmf.cnf" 1640310881 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -157,14 +157,14 @@
   "figs2/task3_hist_2_2_v0.eps" 1665000616 39249 1df2db996f9b9ec07343cd938cc78d2c ""
   "figs2/task4_hist_v0.eps" 1665001422 38060 8ed5908e7f5977e4e717968e8cbf57a5 ""
   "figs2/task4_m_vs_t_v0.eps" 1665001453 24098127 5ae216dff6165b6fd0f9c64c12a376e2 ""
-  "report_v1.aux" 1665254176 12085 4498814509f3e5d3dfcb08a822b139ab "pdflatex"
-  "report_v1.out" 1665254176 919 61a47350607f628c3fac3aaf33a1b59c "pdflatex"
-  "report_v1.tex" 1665254162 24029 bb1ac8c35d9639e88cfea24f15494819 ""
-  "report_v1.toc" 1665254176 1201 127d0ed8dfc533efb072fdb032ad5a67 "pdflatex"
+  "report_v1.aux" 1665335839 12085 e39c4e5e96bf900873cf28e2b9ce47d5 "pdflatex"
+  "report_v1.out" 1665335839 919 61a47350607f628c3fac3aaf33a1b59c "pdflatex"
+  "report_v1.tex" 1665335837 24037 44708f7e29770f5b5a78080e3d4e3062 ""
+  "report_v1.toc" 1665335839 1201 127d0ed8dfc533efb072fdb032ad5a67 "pdflatex"
   "selfArx.cls" 1665236096 7475 bdc2472704c48b60db7bcb78a17c5707 ""
   (generated)
-  "report_v1.pdf"
   "report_v1.out"
   "report_v1.aux"
-  "report_v1.toc"
+  "report_v1.pdf"
   "report_v1.log"
+  "report_v1.toc"

@@ -199,14 +199,15 @@ which defines the ratio of active to random conversions.
 		\label{fig:task1}
 \end{figure*}
 
-\begin{equation}
-	\alpha = \frac{F}{1 + F}
-	\label{eq:alpha_of_F}
-\end{equation}
 Solving eqs \eqref{eq:dadt} and \eqref{eq:dmdt} in steady state for $m=a$, we get 
 \begin{equation}
 	m = \frac{\sqrt{3\alpha^2 - 6\alpha + 4} + 3\alpha - 2}{6\alpha}.
 	\label{eq:m_of_alpha}
+\end{equation}
+where we for alpha will use 
+\begin{equation}
+	\alpha = \frac{F}{1 + F}.
+\label{eq:alpha_of_F}
 \end{equation}
 
 
@@ -368,9 +369,9 @@ we use $\gamma\in [-1,-3]$.
 
 
 
-$\gamma$ is a constant determining the rate at which the recruitment probability decays with the distance along the nucleosome chain. As $\gamma$ decreases, the probability decays faster and faster, until the recruitment process is entirely local. A local recruitment mechanism does not display a bistable behavior, while a global -- as shown by our initial model -- does. 
+$\gamma$ is a constant determining the rate at which the recruitment probability decays with the distance along the nucleosome chain. As $\gamma$ decreases, the probability decays faster and faster, until the recruitment process is entirely local. A local recruitment mechanism does not display a bistable behavior, while a global -- as shown by model 0-- does. 
 
-In our initial model, there was no distance dependency, recruitment was equally likely from every other nucleosome in the chain. This model is therefore entirely global. 
+In model 0, there was no distance dependency, recruitment was equally likely from every other nucleosome in the chain. This model is therefore entirely global. 
 This is the baseline to which we can compare the behavior of the new model. 
 As $\gamma\to 0$, the probability vector becomes uniform (does not decay with distance), and the result is the same as in model 0.
 

@@ -2,7 +2,7 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 import glob
-import scipy
+# import scipy
 
 
 def get_degree_distribution(G):
