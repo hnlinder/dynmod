@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1667586007 "report_v0.tex" "report_v0.pdf" "report_v0" 1667586007
+["pdflatex"] 1668363695 "report_v0.tex" "report_v0.pdf" "report_v0" 1668363695
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1650183167 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -71,10 +71,16 @@
   "figs/task1/clustering_coeff_v1.eps" 1666188313 26971 daa23b3a23adccc5578617b6729fc77a ""
   "figs/task1/degree_dist_v1.eps" 1666188312 34697 b6150b425fbfd5d8e5965af668f8bd2e ""
   "figs/task1/spl_v1.eps" 1666188313 34677 5b27041ee31f904ad84bb99fe0805bf8 ""
+  "figs/task2/e.coli_metabolic_net_clustering_coeff_w_30_rand_v1.eps" 1666120081 25166 e8165cdee41643faf140dd0a5f1b9441 ""
+  "figs/task2/e.coli_metabolic_net_spl_w_30_rand_v1.eps" 1666120082 28075 1893237498cfcce3556318bd4111007b ""
+  "figs/task2/human_kidney_protein_clustering_coeff_w_30_rand_v3.eps" 1666120080 26745 4731e7e3cb49607fc09d6ce3dbc40350 ""
+  "figs/task2/human_kidney_protein_spl_w_30_rand_v1.eps" 1666120081 33621 961faf945d76d4fa1ebc520f848fbee9 ""
+  "figs/task2/yeast_gene_network_clustering_coeff_w_30_rand_v5.eps" 1667590153 25231 a8e4e6f56a5a6719cb81d822570cfb3d ""
+  "figs/task2/yeast_gene_network_spl_w_rand_v3.eps" 1666117251 33926 8c7ff7a06f958fc17db92a1c4b32a296 ""
   "figs/task3/e.coli_metabolic_net_random_rm_20_runs_per_f_v0.eps" 1666090548 23287 60aaa61249f69ea2ab8628680b2c0ffc ""
   "figs/task3/e.coli_metabolic_net_top_rm_20_runs_per_f_v1.eps" 1666113334 23967 e0e0c6495394990be5bc05b3c3ab7f5e ""
-  "report_v0.aux" 1667586007 1509 93e88b534a00791c3e400d93e4f7216f "pdflatex"
-  "report_v0.tex" 1666188369 2348 3ec114c6dfd03a00638c26cd35127207 ""
+  "report_v0.aux" 1668363695 2011 aeaf44e261031d19de285968c59ceee2 "pdflatex"
+  "report_v0.tex" 1668363694 3637 6cda7a1c5ab730546b7032691e545bda ""
   (generated)
   "report_v0.aux"
   "report_v0.log"
